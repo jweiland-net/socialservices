@@ -1,0 +1,63 @@
+{namespace maps2=JWeiland\Maps2\ViewHelpers}
+
+<header class="marginbottom"><h1>{helpdesk.title}</h1></header>
+<div class="grid_12 clearer clearfix">
+	<div class="grid_6 floatleft">
+		<f:if condition="{helpdesk.description}">
+			<div class="description gridright marginbottom"><f:format.html>{helpdesk.description}</f:format.html></div>
+		</f:if>
+	</div>
+	<div class="grid_6 floatleft">
+		<f:render partial="Helpdesk/Social.html" arguments="{helpdesk: helpdesk}" />
+		<div class="gridleft clearfix rulerbefore4">
+			<dl class="extdl">
+				<dd>
+					<f:render partial="Helpdesk/Address" arguments="{helpdesk: helpdesk}"/>
+				</dd>
+				<f:if condition="{helpdesk.contactTimes}">
+					<dt>
+						<f:translate key="tx_socialservices_domain_model_helpdesk.contactTimes"/>:
+					</dt>
+					<dd>
+						{helpdesk.contactTimes -> f:format.html(parseFuncTSPath: 'lib.parseFunc') -> f:format.nl2br()}
+					</dd>
+				</f:if>
+			</dl>
+			<dl class="extdl clearfix rulerafter">
+				<dd class="grid_8 floatleft noborder">
+					<f:render partial="Helpdesk/Contact" arguments="{helpdesk: helpdesk}"/>
+				</dd>
+				<f:if condition="{helpdesk.txMaps2Uid}">
+					<dd class="grid_4 floatleft noborder">
+						<f:link.action action="show" controller="PoiCollection" extensionName="maps2" pluginName="maps2" pageUid="{settings.pidOfMaps2Plugin}" arguments="{poiCollection: helpdesk.txMaps2Uid}">
+							<f:image class="floatright" src="fileadmin/templates/img/thumbmaps.png" alt="{f:translate(key: 'altTextMapImg')}"/>
+						</f:link.action>
+					</dd>
+				</f:if>
+			</dl>
+			<dl class="extdl">
+				<f:if condition="{helpdesk.contactPerson}">
+					<dt>
+						<f:translate key="tx_socialservices_domain_model_helpdesk.contactPerson"/>:</dt>
+					<dd>
+						{helpdesk.contactPerson}
+					</dd>
+				</f:if>
+
+				<dt>
+					<f:translate key="tx_socialservices_domain_model_helpdesk.barrierFree"/>:
+				</dt>
+				<dd>
+					<f:if condition="{helpdesk.barrierFree}">
+						<f:then>
+							<f:translate key="yes"/>
+						</f:then>
+						<f:else>
+							<f:translate key="no"/>
+						</f:else>
+					</f:if>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>

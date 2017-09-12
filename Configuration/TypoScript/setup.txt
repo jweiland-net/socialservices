@@ -1,0 +1,36 @@
+plugin.tx_socialservices {
+	view {
+		templateRootPath = {$plugin.tx_socialservices.view.templateRootPath}
+		partialRootPath = {$plugin.tx_socialservices.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_socialservices.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_socialservices.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		rewrittenPropertyMapper = 1
+	}
+	settings {
+		pidOfMaps2Plugin = {$plugin.tx_socialservices.settings.pidOfMaps2Plugin}
+		pidOfDetailPage = {$plugin.tx_socialservices.settings.pidOfDetailPage}
+		pageBrowser {
+			itemsPerPage = {$plugin.tx_socialservices.settings.pageBrowser.itemsPerPage}
+			insertAbove = {$plugin.tx_socialservices.settings.pageBrowser.insertAbove}
+			insertBelow = {$plugin.tx_socialservices.settings.pageBrowser.insertBelow}
+			maximumNumberOfLinks = {$plugin.tx_socialservices.settings.pageBrowser.maximumNumberOfLinks}
+		}
+	}
+}
+
+plugin.tx_schooldirectory._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+)
