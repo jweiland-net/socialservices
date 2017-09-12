@@ -1,65 +1,53 @@
 <?php
 namespace JWeiland\Socialservices\Domain\Model;
 
-/***************************************************************
- *  Copyright notice
+/*
+ * This file is part of the TYPO3 CMS project.
  *
- *  (c) 2013 Stefan Frömken <sfroemken@jweiland.net>, jweiland.net
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- *  All rights reserved
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
  *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * The TYPO3 project - inspiring people to share!
+ */
 
 /**
+ * Class District
+ *
  * @package socialservices
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class District extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class District extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
+    /**
+     * District
+     *
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $district = '';
 
-	/**
-	 * District
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $district;
+    /**
+     * Returns the district
+     *
+     * @return string $district
+     */
+    public function getDistrict(): string
+    {
+        return $this->district;
+    }
 
-
-
-
-
-	/**
-	 * Returns the district
-	 *
-	 * @return string $district
-	 */
-	public function getDistrict() {
-		return $this->district;
-	}
-
-	/**
-	 * Sets the district
-	 *
-	 * @param string $district
-	 * @return void
-	 */
-	public function setDistrict($district) {
-		$this->district = $district;
-	}
-
+    /**
+     * Sets the district
+     *
+     * @param string $district
+     * @return void
+     */
+    public function setDistrict(string $district)
+    {
+        $this->district = $district;
+    }
 }
