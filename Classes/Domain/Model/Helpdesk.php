@@ -14,6 +14,7 @@ namespace JWeiland\Socialservices\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -472,9 +473,9 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the district
      *
-     * @return District $district
+     * @return District|LazyLoadingProxy $district
      */
-    public function getDistrict(): District
+    public function getDistrict()
     {
         return $this->district;
     }

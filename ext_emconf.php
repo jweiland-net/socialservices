@@ -10,33 +10,31 @@
 # "version" and "dependencies" must not be touched!
 ########################################################################
 
-$EM_CONF[$_EXTKEY] = array(
-	'title' => 'Social Services',
-	'description' => 'socialservices',
-	'category' => 'plugin',
-	'author' => 'Stefan Froemken',
-	'author_email' => 'sfroemken@jweiland.net',
-	'author_company' => 'jweiland.net',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
-	'state' => 'stable',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'modify_tables' => '',
-	'clearCacheOnLoad' => 0,
-	'lockType' => '',
-	'version' => '0.0.12',
-	'constraints' => array(
-		'depends' => array(
-			'extbase' => '1.5',
-			'fluid' => '1.5',
-			'typo3' => '4.7',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
-);
+$EM_CONF[$_EXTKEY] = [
+    'title' => 'Social Services',
+    'description' => 'socialservices',
+    'category' => 'plugin',
+    'author' => 'Stefan Froemken',
+    'author_email' => 'sfroemken@jweiland.net',
+    'author_company' => 'jweiland.net',
+    'shy' => '',
+    'priority' => '',
+    'module' => '',
+    'state' => 'stable',
+    'internal' => '',
+    'uploadfolder' => '0',
+    'createDirs' => '',
+    'modify_tables' => '',
+    'clearCacheOnLoad' => 0,
+    'lockType' => '',
+    'version' => '1.0.0',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '8.7.0-8.7.99',
+        ],
+        'conflicts' => [
+        ],
+        'suggests' => [
+        ],
+    ],
+];

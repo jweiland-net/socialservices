@@ -31,7 +31,6 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * HelpdeskRepository
      *
      * @var HelpdeskRepository
-     * @inject
      */
     protected $helpdeskRepository;
 
@@ -54,6 +53,17 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         if (empty($this->settings['pidOfDetailPage'])) {
             $this->settings['pidOfDetailPage'] = null;
         }
+    }
+
+    /**
+     * inject helpdeskRepository
+     *
+     * @param HelpdeskRepository $helpdeskRepository
+     * @return void
+     */
+    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository)
+    {
+        $this->helpdeskRepository = $helpdeskRepository;
     }
 
     /**

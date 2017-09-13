@@ -14,6 +14,9 @@ namespace JWeiland\Socialservices\Tca;
  * The TYPO3 project - inspiring people to share!
  */
 
+use JWeiland\Maps2\Domain\Model\Location;
+use JWeiland\Maps2\Domain\Model\RadiusResult;
+use JWeiland\Maps2\Utility\GeocodeUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Database\Connection;
@@ -22,6 +25,7 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * @package socialservices
@@ -35,6 +39,13 @@ class CreateMap
      * @var ObjectManager
      */
     protected $objectManager;
+
+    /**
+     * GeocodeUtility from maps2 extension
+     *
+     * @var GeocodeUtility
+     */
+    protected $geocodeUtility;
 
     /**
      * Current record
@@ -51,6 +62,7 @@ class CreateMap
     public function init()
     {
         $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $this->geocodeUtility = $this->objectManager->get(GeocodeUtility::class);
     }
 
     /**
@@ -58,7 +70,7 @@ class CreateMap
      *
      * @param string $status "new" od something else to update the record
      * @param string $table The table name
-     * @param integer $uid The UID of the new or updated record. Can be prepended with NEW if record is new.
+     * @param int|string $uid The UID of the new or updated record. Can be prepended with NEW if record is new.
      * Use: $this->substNEWwithIDs to convert
      * @param array $fieldArray The fields of the current record
      * @param DataHandler $pObj
@@ -67,7 +79,7 @@ class CreateMap
     public function processDatamap_afterDatabaseOperations(
         string $status,
         string $table,
-        int $uid,
+        $uid,
         array $fieldArray,
         DataHandler $pObj
     ) {
@@ -88,14 +100,12 @@ class CreateMap
             // sync categories
             $this->updateMmEntries();
         } else {
-            // create new map-record and set them in relation
-            $jSon = GeneralUtility::getUrl(
-                'http://maps.googleapis.com/maps/api/geocode/json?address=' . $this->getAddress() . '&sensor=false'
-            );
-            $response = json_decode($jSon, true);
-            if (is_array($response) && $response['status'] === 'OK') {
-                $location = $response['results'][0]['geometry']['location'];
-                $address = $response['results'][0]['formatted_address'];
+            $response = $this->geocodeUtility->findPositionByAddress($this->getAddress());
+            if ($response instanceof ObjectStorage && $response->count()) {
+                /** @var RadiusResult $firstResult */
+                $firstResult = $response->current();
+                $location = $firstResult->getGeometry()->getLocation();
+                $address = $firstResult->getFormattedAddress();
                 $poiUid = $this->createNewPoiCollection($location, $address);
                 $this->updateCurrentRecord($poiUid);
 
@@ -130,7 +140,6 @@ class CreateMap
         $address[] = $this->currentRecord['house_number'];
         $address[] = $this->currentRecord['zip'];
         $address[] = $this->currentRecord['city'];
-        $address[] = 'Deutschland';
 
         return rawurlencode(implode(' ', $address));
     }
@@ -192,11 +201,11 @@ class CreateMap
     /**
      * creates a new poiCollection before updating the current socialservices record
      *
-     * @param array $location
+     * @param Location $location
      * @param string $address Formatted Address returned from Google
      * @return integer insert UID
      */
-    public function createNewPoiCollection(array $location, string $address): int
+    public function createNewPoiCollection(Location $location, string $address): int
     {
         $tsConfig = $this->getTsConfig();
         $data['tx_maps2_domain_model_poicollection']['NEW9823be87'] = [
@@ -206,8 +215,8 @@ class CreateMap
             'cruser_id' => $this->getBackendUserAuthentication()->user['uid'],
             'hidden' => 0,
             'deleted' => 0,
-            'latitude' => $location['lat'],
-            'longitude' => $location['lng'],
+            'latitude' => $location->getLat(),
+            'longitude' => $location->getLng(),
             'collection_type' => 'Point',
             'title' => $this->currentRecord['title'],
             'address' => $address

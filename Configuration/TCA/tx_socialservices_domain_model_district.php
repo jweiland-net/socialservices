@@ -1,9 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
-$TCA['tx_socialservices_domain_model_district'] = [
+return [
     'ctrl' => [
         'title' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_district',
         'label' => 'district',
