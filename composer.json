@@ -2,7 +2,7 @@
   "name": "jweiland/socialservices",
   "type": "typo3-cms-extension",
   "description": "Frontend extension to display social services",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "keywords": ["typo3", "TYPO3 CMS", "socialservices"],
   "homepage": "http://www.jweiland.net",
   "authors": [
@@ -18,7 +18,7 @@
     "source": "https://github.com/jweiland-net/socialservices"
   },
   "require": {
-    "typo3/cms-core": "~8.7",
+    "typo3/cms-core": "^8.7",
     "jweiland/maps2": ">=2.9.0,<3.2"
   },
   "autoload": {
