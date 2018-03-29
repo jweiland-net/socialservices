@@ -20,6 +20,10 @@
 	"require": {
 		"typo3/cms-core": "^8.7"
 	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^2.0",
+		"nimut/testing-framework": "^2.0 || ^3.0"
+	},
 	"autoload": {
 		"psr-4": {
 			"JWeiland\\Socialservices\\": "Classes"
