@@ -2,7 +2,7 @@
 namespace JWeiland\Socialservices\Tca;
 
 /*
- * This file is part of the TYPO3 CMS project.
+ * This file is part of the socialservices project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -28,7 +28,6 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * @package socialservices
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class CreateMap
@@ -120,7 +119,7 @@ class CreateMap
      * While updating a record only the changed fields will be in $fieldArray
      *
      * @param string $table
-     * @param integer $uid
+     * @param int $uid
      * @return array|NULL Returns the row if found, otherwise NULL
      */
     public function getFullRecord(string $table, int $uid)
@@ -148,7 +147,7 @@ class CreateMap
      * try to find a similar poiCollection
      *
      * @param array $location
-     * @return integer The UID of the PoiCollection. 0 if not found
+     * @return int The UID of the PoiCollection. 0 if not found
      */
     public function findPoiByLocation(array $location): int
     {
@@ -171,7 +170,7 @@ class CreateMap
     /**
      * update socialservices record
      *
-     * @param integer $poi
+     * @param int $poi
      * @return void
      */
     public function updateCurrentRecord(int $poi)

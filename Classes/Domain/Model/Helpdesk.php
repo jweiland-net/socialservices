@@ -2,7 +2,7 @@
 namespace JWeiland\Socialservices\Domain\Model;
 
 /*
- * This file is part of the TYPO3 CMS project.
+ * This file is part of the socialservices project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -20,7 +20,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 /**
  * Class Helpdesk
  *
- * @package socialservices
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -426,7 +425,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the barrierFree
      *
-     * @param boolean $barrierFree
+     * @param bool $barrierFree
      * @return void
      */
     public function setBarrierFree(bool $barrierFree)
@@ -435,7 +434,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the boolean state of barrierFree
+     * Returns the bool state of barrierFree
      *
      * @return bool
      */

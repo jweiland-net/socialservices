@@ -2,7 +2,7 @@
 namespace JWeiland\Socialservices\Domain\Repository;
 
 /*
- * This file is part of the TYPO3 CMS project.
+ * This file is part of the socialservices project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -22,7 +22,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * Class HelpdeskRepository
  *
- * @package socialservices
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class HelpdeskRepository extends Repository
