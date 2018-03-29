@@ -202,7 +202,7 @@ class CreateMap
      *
      * @param Location $location
      * @param string $address Formatted Address returned from Google
-     * @return integer insert UID
+     * @return int insert UID
      */
     public function createNewPoiCollection(Location $location, string $address): int
     {
@@ -307,5 +307,4 @@ class CreateMap
             );
         }
     }
-
 }
