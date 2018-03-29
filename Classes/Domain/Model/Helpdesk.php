@@ -167,6 +167,22 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $categories;
 
     /**
+     * Constructor of this class.
+     */
+    public function __construct()
+    {
+        $this->initStorageObjects();
+    }
+
+    /**
+     * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
+     */
+    protected function initStorageObjects()
+    {
+        $this->categories = new ObjectStorage();
+    }
+
+    /**
      * Returns the title
      *
      * @return string $title
@@ -596,4 +612,25 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->categories = $categories;
     }
 
+    /**
+     * Add category
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+     * @return void
+     */
+    public function addCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category)
+    {
+        $this->categories->attach($category);
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+     * @return void
+     */
+    public function removeCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category)
+    {
+        $this->categories->detach($category);
+    }
 }
