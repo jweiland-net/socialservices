@@ -18,7 +18,7 @@ CREATE TABLE tx_socialservices_domain_model_helpdesk (
 	email varchar(255) DEFAULT '' NOT NULL,
 	website varchar(255) DEFAULT '' NOT NULL,
 	barrier_free tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	description varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
 	tx_maps2_uid int(11) DEFAULT '0' NOT NULL,
 	facebook varchar(255) DEFAULT '' NOT NULL,
 	twitter varchar(255) DEFAULT '' NOT NULL,
