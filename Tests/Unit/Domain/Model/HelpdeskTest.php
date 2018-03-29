@@ -770,7 +770,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setCategoriesSetsCategories() {
-        $object = new \JWeiland\Maps2\Domain\Model\Category();
+        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
         $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
@@ -788,7 +788,7 @@ class HelpdeskTest extends UnitTestCase
         $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->subject->setCategories($objectStorage);
 
-        $object = new \JWeiland\Maps2\Domain\Model\Category();
+        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
         $this->subject->addCategory($object);
 
         $objectStorage->attach($object);
@@ -803,7 +803,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function removeCategoryRemovesOneCategory() {
-        $object = new \JWeiland\Maps2\Domain\Model\Category();
+        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
         $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
