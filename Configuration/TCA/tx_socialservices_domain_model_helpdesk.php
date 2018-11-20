@@ -192,6 +192,7 @@ return [
             'label' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_helpdesk.district',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_socialservices_domain_model_district',
                 'foreign_table_where' => 'ORDER BY tx_socialservices_domain_model_district.district',
                 'items' => [
