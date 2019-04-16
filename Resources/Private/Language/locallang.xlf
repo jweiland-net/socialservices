@@ -67,6 +67,9 @@
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
 				<source>Map</source>
 			</trans-unit>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.sortTitle">
+				<source>Title to sort by</source>
+			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_district">
 				<source>District (social)</source>
@@ -80,6 +83,15 @@
 			</trans-unit>
 			<trans-unit id="noResults">
 				<source>No results found</source>
+			</trans-unit>
+			<trans-unit id="filterBy">
+				<source>Filter by</source>
+			</trans-unit>
+			<trans-unit id="ascending">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="descending">
+				<source>Descending</source>
 			</trans-unit>
 			<trans-unit id="yes">
 				<source>yes</source>

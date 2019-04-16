@@ -14,6 +14,7 @@
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.category">
 				<source>Category</source>
+				<target>Kategorie</target>
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.street">
 				<source>Street</source>
@@ -87,6 +88,10 @@
 				<source>Map</source>
 				<target>Karte</target>
 			</trans-unit>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.sortTitle">
+				<source>Title to sort by</source>
+				<target>Titel nach dem sortiert werden soll</target>
+			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_district">
 				<source>District (social)</source>
@@ -104,6 +109,18 @@
 			<trans-unit id="noResults">
 				<source>No results found</source>
 				<target>Keine Einträge gefunden</target>
+			</trans-unit>
+			<trans-unit id="filterBy">
+				<source>Filter by</source>
+				<target>Filtern</target>
+			</trans-unit>
+			<trans-unit id="ascending">
+				<source>Ascending</source>
+				<target>Aufsteigend</target>
+			</trans-unit>
+			<trans-unit id="descending">
+				<source>Descending</source>
+				<target>Absteigend</target>
 			</trans-unit>
 			<trans-unit id="yes">
 				<source>yes</source>

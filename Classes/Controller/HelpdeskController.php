@@ -14,17 +14,21 @@ namespace JWeiland\Socialservices\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
+use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class HelpdeskController
  *
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class HelpdeskController extends ActionController
 {
     /**
      * HelpdeskRepository
@@ -34,6 +38,20 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     protected $helpdeskRepository;
 
     /**
+     * CategoryRepository
+     * 
+     * @var CategoryRepository
+     */
+    protected $categoryRepository;
+
+    /**
+     * ExtConf
+     * 
+     * @var ExtConf
+     */
+    protected $extConf;
+
+    /**
      * Letters
      *
      * @var string
@@ -41,7 +59,7 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     protected $letters = '0-9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
 
     /**
-     * preprocessing of all actions
+     * Pre processing of all actions.
      *
      * @return void
      */
@@ -51,6 +69,16 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         // but that is not good, because UriBuilder accepts 0 as pid, so it's better to set it to NULL
         if (empty($this->settings['pidOfDetailPage'])) {
             $this->settings['pidOfDetailPage'] = null;
+        }
+        if ($this->arguments->hasArgument('search')) {
+            $this->arguments->getArgument('search')
+                ->getPropertyMappingConfiguration()
+                ->allowProperties(
+                    'searchWord',
+                    'letter',
+                    'category',
+                    'subCategory'
+                );
         }
     }
 
@@ -63,6 +91,28 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository)
     {
         $this->helpdeskRepository = $helpdeskRepository;
+    }
+    
+    /**
+     * inject categoryRepository
+     *
+     * @param CategoryRepository $categoryRepository
+     * @return void
+     */
+    public function injectCategoryRepository(CategoryRepository $categoryRepository)
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
+    
+    /**
+     * inject extConf
+     *
+     * @param ExtConf $extConf
+     * @return void
+     */
+    public function injectExtConf(ExtConf $extConf)
+    {
+        $this->extConf = $extConf;
     }
 
     /**
@@ -81,6 +131,7 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         }
         $this->view->assign('helpdesks', $helpdesks);
         $this->view->assign('glossar', $this->getGlossar());
+        $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
     }
 
     /**
@@ -129,29 +180,24 @@ class HelpdeskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     }
 
     /**
-     * secure search parameter
+     * search show.
      *
+     * @param Search $search
      * @return void
      */
-    public function initializeSearchAction()
+    public function searchAction(Search $search = null)
     {
-        if ($this->request->hasArgument('search')) {
-            $search = $this->request->getArgument('search');
-            $this->request->setArgument('search', htmlentities($search));
+        if ($search instanceof Search) {
+            $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
+            if ($search->getCategory()) {
+                $this->view->assign('subCategories', $this->categoryRepository->findByParent($search->getCategory()));
+            }
+        } else {
+            $helpdesks = $this->helpdeskRepository->findAll();
         }
-    }
-
-    /**
-     * search show
-     *
-     * @param string $search
-     * @return void
-     */
-    public function searchAction($search)
-    {
-        $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
+        $this->view->assign('helpdesks', $helpdesks);
+        $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
         $this->view->assign('search', $search);
         $this->view->assign('glossar', $this->getGlossar());
-        $this->view->assign('helpdesks', $helpdesks);
     }
 }

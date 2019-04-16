@@ -1,6 +1,6 @@
 <div class="search">
 	<f:form action="search" name="search">
-		<f:form.textfield name="search" value="{search}" />
+		<f:form.textfield name="search[searchWord]" value="{search.searchWord}" />
 		<f:form.submit value="{f:translate(key: 'search')}" />
 	</f:form>
 </div>
