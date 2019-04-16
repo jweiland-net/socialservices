@@ -39,14 +39,14 @@ class HelpdeskController extends ActionController
 
     /**
      * CategoryRepository
-     * 
+     *
      * @var CategoryRepository
      */
     protected $categoryRepository;
 
     /**
      * ExtConf
-     * 
+     *
      * @var ExtConf
      */
     protected $extConf;
@@ -92,7 +92,7 @@ class HelpdeskController extends ActionController
     {
         $this->helpdeskRepository = $helpdeskRepository;
     }
-    
+
     /**
      * inject categoryRepository
      *
@@ -103,7 +103,7 @@ class HelpdeskController extends ActionController
     {
         $this->categoryRepository = $categoryRepository;
     }
-    
+
     /**
      * inject extConf
      *
