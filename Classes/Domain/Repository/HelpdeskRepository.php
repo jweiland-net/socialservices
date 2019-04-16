@@ -146,7 +146,7 @@ class HelpdeskRepository extends Repository
     }
 
     /**
-     * Get constraint to search clubs by searchWord
+     * Get constraint to search helpdesks by searchWord
      *
      * @param QueryInterface $query
      * @param string $searchWord

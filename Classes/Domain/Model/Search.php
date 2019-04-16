@@ -67,8 +67,6 @@ class Search
      * Sets the letter
      *
      * @param string $letter
-     *
-     * @return void
      */
     public function setLetter(string $letter)
     {
@@ -89,8 +87,6 @@ class Search
      * Sets the searchWord
      *
      * @param string $searchWord
-     *
-     * @return void
      */
     public function setSearchWord(string $searchWord)
     {
@@ -111,8 +107,6 @@ class Search
      * Sets the category
      *
      * @param int $category
-     *
-     * @return void
      */
     public function setCategory(int $category)
     {
@@ -133,8 +127,6 @@ class Search
      * Sets the subCategory
      *
      * @param int $subCategory
-     *
-     * @return void
      */
     public function setSubCategory(int $subCategory)
     {
@@ -155,8 +147,6 @@ class Search
      * Sets the orderBy
      *
      * @param string $orderBy
-     *
-     * @return void
      */
     public function setOrderBy(string $orderBy)
     {
@@ -177,8 +167,6 @@ class Search
      * Sets the direction
      *
      * @param string $direction
-     *
-     * @return void
      */
     public function setDirection(string $direction)
     {

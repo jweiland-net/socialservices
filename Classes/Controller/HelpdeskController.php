@@ -60,8 +60,6 @@ class HelpdeskController extends ActionController
 
     /**
      * Pre processing of all actions.
-     *
-     * @return void
      */
     public function initializeAction()
     {
@@ -86,7 +84,6 @@ class HelpdeskController extends ActionController
      * inject helpdeskRepository
      *
      * @param HelpdeskRepository $helpdeskRepository
-     * @return void
      */
     public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository)
     {
@@ -97,7 +94,6 @@ class HelpdeskController extends ActionController
      * inject categoryRepository
      *
      * @param CategoryRepository $categoryRepository
-     * @return void
      */
     public function injectCategoryRepository(CategoryRepository $categoryRepository)
     {
@@ -108,7 +104,6 @@ class HelpdeskController extends ActionController
      * inject extConf
      *
      * @param ExtConf $extConf
-     * @return void
      */
     public function injectExtConf(ExtConf $extConf)
     {
@@ -120,7 +115,6 @@ class HelpdeskController extends ActionController
      *
      * @param string $letter Show only records starting with this letter
      * @validate $letter String, StringLength(minimum=0,maximum=1)
-     * @return void
      */
     public function listAction($letter = null)
     {
@@ -172,7 +166,6 @@ class HelpdeskController extends ActionController
      * action show
      *
      * @param Helpdesk $helpdesk
-     * @return void
      */
     public function showAction(Helpdesk $helpdesk)
     {
@@ -183,7 +176,6 @@ class HelpdeskController extends ActionController
      * search show.
      *
      * @param Search $search
-     * @return void
      */
     public function searchAction(Search $search = null)
     {
