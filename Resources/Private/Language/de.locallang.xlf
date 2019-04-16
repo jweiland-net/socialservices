@@ -88,10 +88,6 @@
 				<source>Map</source>
 				<target>Karte</target>
 			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.sortTitle">
-				<source>Title to sort by</source>
-				<target>Titel nach dem sortiert werden soll</target>
-			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_district">
 				<source>District (social)</source>

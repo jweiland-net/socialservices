@@ -197,11 +197,7 @@ class Search
             0 => [
                 'key' => 'title',
                 'value' => LocalizationUtility::translate('tx_socialservices_domain_model_helpdesk.title', 'socialservices')
-            ],
-            1 => [
-                'key' => 'sortTitle',
-                'value' => LocalizationUtility::translate('tx_socialservices_domain_model_helpdesk.sortTitle', 'socialservices')
-            ],
+            ]
         ];
     }
 

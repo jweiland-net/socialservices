@@ -67,9 +67,6 @@
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
 				<source>Map</source>
 			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.sortTitle">
-				<source>Title to sort by</source>
-			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_district">
 				<source>District (social)</source>
