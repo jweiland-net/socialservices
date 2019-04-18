@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace JWeiland\Socialservices\Configuration;
 
 /*
@@ -56,10 +57,10 @@ class ExtConf implements SingletonInterface
     }
 
     /**
-     * @param int $rootCategory
+     * @param string $rootCategory
      */
-    public function setRootCategory(int $rootCategory)
+    public function setRootCategory(string $rootCategory)
     {
-        $this->rootCategory = $rootCategory;
+        $this->rootCategory = (int)$rootCategory;
     }
 }

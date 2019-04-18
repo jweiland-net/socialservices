@@ -70,7 +70,7 @@ class Search
      */
     public function setLetter(string $letter)
     {
-        $this->letter = (string)$letter;
+        $this->letter = $letter;
     }
 
     /**
@@ -90,7 +90,7 @@ class Search
      */
     public function setSearchWord(string $searchWord)
     {
-        $this->searchWord = (string)$searchWord;
+        $this->searchWord = $searchWord;
     }
 
     /**
@@ -195,7 +195,7 @@ class Search
      *
      * @return array
      */
-    public function getDirections()
+    public function getDirections(): array
     {
         return [
             0 => [

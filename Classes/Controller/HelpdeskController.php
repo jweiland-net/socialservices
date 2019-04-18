@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace JWeiland\Socialservices\Controller;
 
 /*
@@ -116,7 +117,7 @@ class HelpdeskController extends ActionController
      * @param string $letter Show only records starting with this letter
      * @validate $letter String, StringLength(minimum=0,maximum=1)
      */
-    public function listAction($letter = null)
+    public function listAction(string $letter = null)
     {
         if ($letter === null) {
             $helpdesks = $this->helpdeskRepository->findAll();
