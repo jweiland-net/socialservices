@@ -1,0 +1,64 @@
+<div class="gridleft">
+	<f:form action="search">
+		<div class="marginbottom nobreakinside">
+			<label class="width100"><f:translate key="filterBy" />:</label>
+			<f:form.select
+				class="width100 marginbottom"
+				name="search[category]"
+				value="{search.category}"
+				options="{categories}"
+				optionLabelField="title"
+				optionValueField="uid"
+				prependOptionLabel=""
+				prependOptionValue="0"
+				sortByOptionLabel="1"
+				additionalAttributes="{onChange: 'this.form.submit()'}"
+			/>
+		</div>
+		<f:if condition="{subCategories}">
+			<div class="form-group">
+				<f:form.select
+					class="width100"
+					name="search[subCategory]"
+					value="{search.subCategory}"
+					options="{subCategories}"
+					optionLabelField="title"
+					optionValueField="uid"
+					prependOptionLabel=""
+					prependOptionValue="0"
+					sortByOptionLabel="1"
+					additionalAttributes="{onChange: 'this.form.submit()'}"
+				/>
+			</div>
+		</f:if>
+		<div class="form-group">
+			<label class="width100">Sortieren nach:</label>
+			<f:form.select
+				class="width100 marginbottom"
+				name="search[orderBy]"
+				value="{search.orderBy}"
+				options="{search.fieldNames}"
+				optionLabelField="value"
+				optionValueField="key"
+				prependOptionLabel=""
+				prependOptionValue="0"
+				sortByOptionLabel="1"
+				additionalAttributes="{onChange: 'this.form.submit()'}"
+			/>
+		</div>
+		<div class="form-group">
+			<f:form.select
+				class="width100"
+				name="search[direction]"
+				value="{search.direction}"
+				options="{search.directions}"
+				optionLabelField="value"
+				optionValueField="key"
+				prependOptionLabel=""
+				prependOptionValue="0"
+				sortByOptionLabel="1"
+				additionalAttributes="{onChange: 'this.form.submit()'}"
+			/>
+		</div>
+	</f:form>
+</div>

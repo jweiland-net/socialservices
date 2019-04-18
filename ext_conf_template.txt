@@ -1,2 +1,4 @@
 # cat=basic; type=int+; label=LLL:EXT:socialservices/Resources/Private/Language/ExtConf.xlf:poiCollectionPid
 poiCollectionPid =
+# cat=basic; type=int+; label = LLL:EXT:socialservices/Resources/Private/Language/ExtConf.xlf:rootCategory
+rootCategory = 0
