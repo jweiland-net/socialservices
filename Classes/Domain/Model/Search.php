@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Domain\Model;
 
 /*
@@ -19,7 +19,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * Class Search
+ * Domain model which will be used to start a search against helpdesks
  */
 class Search
 {
@@ -54,9 +54,7 @@ class Search
     protected $direction = QueryInterface::ORDER_ASCENDING;
 
     /**
-     * Returns the letter
-     *
-     * @return string $letter
+     * @return string
      */
     public function getLetter(): string
     {
@@ -64,8 +62,6 @@ class Search
     }
 
     /**
-     * Sets the letter
-     *
      * @param string $letter
      */
     public function setLetter(string $letter)
@@ -74,9 +70,7 @@ class Search
     }
 
     /**
-     * Returns the searchWord
-     *
-     * @return string $searchWord
+     * @return string
      */
     public function getSearchWord(): string
     {
@@ -84,8 +78,6 @@ class Search
     }
 
     /**
-     * Sets the searchWord
-     *
      * @param string $searchWord
      */
     public function setSearchWord(string $searchWord)
@@ -94,9 +86,7 @@ class Search
     }
 
     /**
-     * Returns the category
-     *
-     * @return int $category
+     * @return int
      */
     public function getCategory(): int
     {
@@ -104,8 +94,6 @@ class Search
     }
 
     /**
-     * Sets the category
-     *
      * @param int $category
      */
     public function setCategory(int $category)
@@ -114,9 +102,7 @@ class Search
     }
 
     /**
-     * Returns the subCategory
-     *
-     * @return int $subCategory
+     * @return int
      */
     public function getSubCategory(): int
     {
@@ -124,8 +110,6 @@ class Search
     }
 
     /**
-     * Sets the subCategory
-     *
      * @param int $subCategory
      */
     public function setSubCategory(int $subCategory)
@@ -134,9 +118,7 @@ class Search
     }
 
     /**
-     * Returns the orderBy
-     *
-     * @return string $orderBy
+     * @return string
      */
     public function getOrderBy(): string
     {
@@ -144,8 +126,6 @@ class Search
     }
 
     /**
-     * Sets the orderBy
-     *
      * @param string $orderBy
      */
     public function setOrderBy(string $orderBy)
@@ -154,9 +134,7 @@ class Search
     }
 
     /**
-     * Returns the direction
-     *
-     * @return string $direction
+     * @return string
      */
     public function getDirection(): string
     {
@@ -164,8 +142,6 @@ class Search
     }
 
     /**
-     * Sets the direction
-     *
      * @param string $direction
      */
     public function setDirection(string $direction)

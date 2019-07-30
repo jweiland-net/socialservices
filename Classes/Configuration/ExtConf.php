@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Configuration;
 
 /*
@@ -18,31 +18,30 @@ namespace JWeiland\Socialservices\Configuration;
 use TYPO3\CMS\Core\SingletonInterface;
 
 /**
- * Class ExtConf
+ * This class will streamline the values from extension manager configuration
  */
 class ExtConf implements SingletonInterface
 {
     /**
-     * root category.
-     *
      * @var int
      */
     protected $rootCategory = 0;
 
-    /**
-     * constructor of this class
-     * This method reads the global configuration and calls the setter methods.
-     */
     public function __construct()
     {
-        // get global configuration
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'], ['allowed_classes' => false]);
-        if (is_array($extConf) && count($extConf)) {
-            // call setter method foreach configuration entry
-            foreach ($extConf as $key => $value) {
-                $methodName = 'set' . ucfirst($key);
-                if (method_exists($this, $methodName)) {
-                    $this->$methodName($value);
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'])) {
+            // get global configuration
+            $extConf = unserialize(
+                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'],
+                ['allowed_classes' => false]
+            );
+            if (is_array($extConf) && count($extConf)) {
+                // call setter method foreach configuration entry
+                foreach ($extConf as $key => $value) {
+                    $methodName = 'set' . ucfirst($key);
+                    if (method_exists($this, $methodName)) {
+                        $this->$methodName($value);
+                    }
                 }
             }
         }
