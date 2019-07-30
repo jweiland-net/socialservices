@@ -1,5 +1,4 @@
 <?php
-
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
 /*
@@ -14,18 +13,17 @@ namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case.
- *
- * @author Stefan Froemken <projects@jweiland.net>
  */
 class HelpdeskTest extends UnitTestCase
 {
     /**
-     * @var \JWeiland\Socialservices\Domain\Model\Helpdesk
+     * @var Helpdesk
      */
     protected $subject;
 
@@ -79,7 +77,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setTitleWithBooleanResultsInString() {
-        $this->subject->setTitle(TRUE);
+        $this->subject->setTitle(true);
         $this->assertSame('1', $this->subject->getTitle());
     }
 
@@ -117,7 +115,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setStreetWithBooleanResultsInString() {
-        $this->subject->setStreet(TRUE);
+        $this->subject->setStreet(true);
         $this->assertSame('1', $this->subject->getStreet());
     }
 
@@ -155,7 +153,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setHouseNumberWithBooleanResultsInString() {
-        $this->subject->setHouseNumber(TRUE);
+        $this->subject->setHouseNumber(true);
         $this->assertSame('1', $this->subject->getHouseNumber());
     }
 
@@ -193,7 +191,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setZipWithBooleanResultsInString() {
-        $this->subject->setZip(TRUE);
+        $this->subject->setZip(true);
         $this->assertSame('1', $this->subject->getZip());
     }
 
@@ -231,7 +229,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setCityWithBooleanResultsInString() {
-        $this->subject->setCity(TRUE);
+        $this->subject->setCity(true);
         $this->assertSame('1', $this->subject->getCity());
     }
 
@@ -269,7 +267,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setTelephoneWithBooleanResultsInString() {
-        $this->subject->setTelephone(TRUE);
+        $this->subject->setTelephone(true);
         $this->assertSame('1', $this->subject->getTelephone());
     }
 
@@ -307,7 +305,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setFaxWithBooleanResultsInString() {
-        $this->subject->setFax(TRUE);
+        $this->subject->setFax(true);
         $this->assertSame('1', $this->subject->getFax());
     }
 
@@ -345,7 +343,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setContactPersonWithBooleanResultsInString() {
-        $this->subject->setContactPerson(TRUE);
+        $this->subject->setContactPerson(true);
         $this->assertSame('1', $this->subject->getContactPerson());
     }
 
@@ -383,7 +381,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setContactTimesWithBooleanResultsInString() {
-        $this->subject->setContactTimes(TRUE);
+        $this->subject->setContactTimes(true);
         $this->assertSame('1', $this->subject->getContactTimes());
     }
 
@@ -421,7 +419,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setEmailWithBooleanResultsInString() {
-        $this->subject->setEmail(TRUE);
+        $this->subject->setEmail(true);
         $this->assertSame('1', $this->subject->getEmail());
     }
 
@@ -459,7 +457,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setWebsiteWithBooleanResultsInString() {
-        $this->subject->setWebsite(TRUE);
+        $this->subject->setWebsite(true);
         $this->assertSame('1', $this->subject->getWebsite());
     }
 
@@ -468,7 +466,7 @@ class HelpdeskTest extends UnitTestCase
      */
     public function getBarrierFreeInitiallyReturnsFalse() {
         $this->assertSame(
-            FALSE,
+            false,
             $this->subject->getBarrierFree()
         );
     }
@@ -477,9 +475,9 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setBarrierFreeSetsBarrierFree() {
-        $this->subject->setBarrierFree(TRUE);
+        $this->subject->setBarrierFree(true);
         $this->assertSame(
-            TRUE,
+            true,
             $this->subject->getBarrierFree()
         );
     }
@@ -534,7 +532,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setDescriptionWithBooleanResultsInString() {
-        $this->subject->setDescription(TRUE);
+        $this->subject->setDescription(true);
         $this->assertSame('1', $this->subject->getDescription());
     }
 
@@ -576,7 +574,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setTxMaps2UidWithBooleanResultsInInteger() {
-        $this->subject->setTxMaps2Uid(TRUE);
+        $this->subject->setTxMaps2Uid(true);
 
         $this->assertSame(
             1,
@@ -638,7 +636,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setFacebookWithBooleanResultsInString() {
-        $this->subject->setFacebook(TRUE);
+        $this->subject->setFacebook(true);
         $this->assertSame('1', $this->subject->getFacebook());
     }
 
@@ -676,7 +674,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setTwitterWithBooleanResultsInString() {
-        $this->subject->setTwitter(TRUE);
+        $this->subject->setTwitter(true);
         $this->assertSame('1', $this->subject->getTwitter());
     }
 
@@ -714,7 +712,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setGoogleWithBooleanResultsInString() {
-        $this->subject->setGoogle(TRUE);
+        $this->subject->setGoogle(true);
         $this->assertSame('1', $this->subject->getGoogle());
     }
 
@@ -752,7 +750,7 @@ class HelpdeskTest extends UnitTestCase
      * @test
      */
     public function setTagsWithBooleanResultsInString() {
-        $this->subject->setTags(TRUE);
+        $this->subject->setTags(true);
         $this->assertSame('1', $this->subject->getTags());
     }
 

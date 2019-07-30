@@ -1,5 +1,4 @@
 <?php
-
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
 /*
@@ -14,18 +13,17 @@ namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
 use JWeiland\Socialservices\Domain\Model\District;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case.
- *
- * @author Stefan Froemken <projects@jweiland.net>
  */
 class DistrictTest extends UnitTestCase
 {
     /**
-     * @var \JWeiland\Socialservices\Domain\Model\District
+     * @var District
      */
     protected $subject;
 
@@ -79,7 +77,7 @@ class DistrictTest extends UnitTestCase
      * @test
      */
     public function setDistrictWithBooleanResultsInString() {
-        $this->subject->setDistrict(TRUE);
+        $this->subject->setDistrict(true);
         $this->assertSame('1', $this->subject->getDistrict());
     }
 }
