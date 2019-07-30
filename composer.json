@@ -22,8 +22,8 @@
 		"jweiland/maps2": "^5.0"
 	},
 	"require-dev": {
-		"friendsofphp/php-cs-fixer": "^2",
-		"nimut/testing-framework": "^3"
+		"friendsofphp/php-cs-fixer": "^2.0",
+		"nimut/testing-framework": "^4.1"
 	},
 	"autoload": {
 		"psr-4": {
@@ -39,16 +39,12 @@
 		"vendor-dir": ".Build/vendor",
 		"bin-dir": ".Build/bin"
 	},
-	"scripts": {
-		"post-autoload-dump": [
-			"mkdir -p .Build/Web/typo3conf/ext/",
-			"[ -L .Build/Web/typo3conf/ext/socialservices ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/socialservices"
-		]
-	},
 	"extra": {
 		"typo3/cms": {
+			"extension-key": "socialservices",
 			"cms-package-dir": "{$vendor-dir}/typo3/cms",
-			"web-dir": ".Build/Web"
+			"app-dir": ".Build",
+			"web-dir": ".Build/public"
 		}
 	}
 }
