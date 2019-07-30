@@ -16,7 +16,8 @@ namespace JWeiland\Socialservices\Domain\Repository;
  */
 
 use JWeiland\Socialservices\Domain\Model\Search;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Generic\Qom\OrInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
@@ -73,15 +74,15 @@ class HelpdeskRepository extends Repository
     {
         /** @var Query $query */
         $query = $this->createQuery();
-        return $query->statement('
-			SELECT UPPER(LEFT(title, 1)) as letter
-			FROM tx_socialservices_domain_model_helpdesk
-			WHERE 1=1' .
-            BackendUtility::BEenableFields('tx_socialservices_domain_model_helpdesk') .
-            BackendUtility::deleteClause('tx_socialservices_domain_model_helpdesk') . '
-			GROUP BY letter
-			ORDER by letter;
-		')->execute(true);
+
+        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_socialservices_domain_model_helpdesk');
+        $queryBuilder
+            ->selectLiteral('UPPER(LEFT(title, 1)) as letter')
+            ->from('tx_socialservices_domain_model_helpdesk')
+            ->add('groupBy', 'letter')
+            ->add('orderBy', 'ASC');
+
+        return $query->statement($queryBuilder)->execute(true);
     }
 
     /**
@@ -179,5 +180,15 @@ class HelpdeskRepository extends Repository
         ];
 
         return $query->logicalOr($logicalOrConstraints);
+    }
+
+    /**
+     * Get TYPO3s Connection Pool
+     *
+     * @return ConnectionPool
+     */
+    protected function getConnectionPool(): ConnectionPool
+    {
+        return GeneralUtility::makeInstance(ConnectionPool::class);
     }
 }
