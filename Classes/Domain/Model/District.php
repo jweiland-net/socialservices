@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Domain\Model;
 
 /*
@@ -14,25 +15,21 @@ namespace JWeiland\Socialservices\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
- * Class District
- *
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * Domain model district which is a relation of helpdesk model
  */
-class District extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class District extends AbstractEntity
 {
     /**
-     * District
-     *
      * @var string
      * @validate NotEmpty
      */
     protected $district = '';
 
     /**
-     * Returns the district
-     *
-     * @return string $district
+     * @return string
      */
     public function getDistrict(): string
     {
@@ -40,10 +37,7 @@ class District extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the district
-     *
      * @param string $district
-     * @return void
      */
     public function setDistrict(string $district)
     {

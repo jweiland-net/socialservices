@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Domain\Repository;
 
 /*
@@ -23,15 +24,11 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Class HelpdeskRepository
- *
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * Main repository to retrieve helpdesk records
  */
 class HelpdeskRepository extends Repository
 {
     /**
-     * Default orderings
-     *
      * @var array
      */
     protected $defaultOrderings = [
@@ -39,12 +36,12 @@ class HelpdeskRepository extends Repository
     ];
 
     /**
-     * find all records starting with given letter
+     * Find all records starting with given letter
      *
      * @param string $letter
      * @return QueryResultInterface
      */
-    public function findByStartingLetter(string $letter)
+    public function findByStartingLetter(string $letter): QueryResultInterface
     {
         $query = $this->createQuery();
 
@@ -68,11 +65,11 @@ class HelpdeskRepository extends Repository
     }
 
     /**
-     * get an array with available starting letters
+     * Get an array with available starting letters
      *
      * @return array
      */
-    public function getStartingLetters()
+    public function getStartingLetters(): array
     {
         /** @var Query $query */
         $query = $this->createQuery();
@@ -88,12 +85,12 @@ class HelpdeskRepository extends Repository
     }
 
     /**
-     * search records
+     * Search records
      *
      * @param Search $search
      * @return QueryResultInterface
      */
-    public function searchHelpdesks(Search $search)
+    public function searchHelpdesks(Search $search): QueryResultInterface
     {
         $query = $this->createQuery();
         $constraints = [];
@@ -152,7 +149,7 @@ class HelpdeskRepository extends Repository
      * @param string $searchWord
      * @return OrInterface
      */
-    protected function getConstraintForSearchWord(QueryInterface $query, string $searchWord)
+    protected function getConstraintForSearchWord(QueryInterface $query, string $searchWord): QueryResultInterface
     {
         // strtolower is not UTF-8 compatible
         $longStreetSearch = $searchWord;

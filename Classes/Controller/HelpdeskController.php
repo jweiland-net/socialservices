@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Controller;
 
 /*
@@ -25,36 +25,26 @@ use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Class HelpdeskController
- *
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * Main controller to list and show helpdesks
  */
 class HelpdeskController extends ActionController
 {
     /**
-     * HelpdeskRepository
-     *
      * @var HelpdeskRepository
      */
     protected $helpdeskRepository;
 
     /**
-     * CategoryRepository
-     *
      * @var CategoryRepository
      */
     protected $categoryRepository;
 
     /**
-     * ExtConf
-     *
      * @var ExtConf
      */
     protected $extConf;
 
     /**
-     * Letters
-     *
      * @var string
      */
     protected $letters = '0-9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
@@ -82,8 +72,6 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * inject helpdeskRepository
-     *
      * @param HelpdeskRepository $helpdeskRepository
      */
     public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository)
@@ -92,8 +80,6 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * inject categoryRepository
-     *
      * @param CategoryRepository $categoryRepository
      */
     public function injectCategoryRepository(CategoryRepository $categoryRepository)
@@ -102,8 +88,6 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * inject extConf
-     *
      * @param ExtConf $extConf
      */
     public function injectExtConf(ExtConf $extConf)
@@ -112,7 +96,7 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * action list
+     * Action list
      *
      * @param string $letter Show only records starting with this letter
      * @validate $letter String, StringLength(minimum=0,maximum=1)
@@ -130,7 +114,7 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * get an array with letters as keys for the glossar
+     * Get an array with letters as keys for the glossar
      *
      * @return array Array with starting letters as keys
      */
@@ -164,7 +148,7 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * action show
+     * Action show
      *
      * @param Helpdesk $helpdesk
      */
@@ -174,7 +158,7 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * search show.
+     * Search show.
      *
      * @param Search $search
      */

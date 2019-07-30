@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace JWeiland\Socialservices\Domain\Model;
 
 /*
@@ -14,160 +15,118 @@ namespace JWeiland\Socialservices\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Class Helpdesk
- *
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * Main domain model helpdesk
  */
-class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Helpdesk extends AbstractEntity
 {
     /**
-     * Title
-     *
      * @var string
      * @validate NotEmpty
      */
     protected $title = '';
 
     /**
-     * Street
-     *
      * @var string
      */
     protected $street = '';
 
     /**
-     * House number
-     *
      * @var string
      */
     protected $houseNumber = '';
 
     /**
-     * Zip
-     *
      * @var string
      */
     protected $zip = '';
 
     /**
-     * City
-     *
      * @var string
      */
     protected $city = '';
 
     /**
-     * Telephone
-     *
      * @var string
      */
     protected $telephone = '';
 
     /**
-     * Fax
-     *
      * @var string
      */
     protected $fax = '';
 
     /**
-     * Contact person
-     *
      * @var string
      */
     protected $contactPerson = '';
 
     /**
-     * Contact times
-     *
      * @var string
      */
     protected $contactTimes = '';
 
     /**
-     * Email
-     *
      * @var string
      */
     protected $email = '';
 
     /**
-     * Website
-     *
      * @var string
      */
     protected $website = '';
 
     /**
-     * Barrier-free
      * @var bool
      */
     protected $barrierFree = false;
 
     /**
-     * Description
-     *
      * @var string
      */
     protected $description = '';
 
     /**
-     * Maps
-     *
      * @var int
      */
     protected $txMaps2Uid = 0;
 
     /**
-     * District
-     *
      * @var \JWeiland\Socialservices\Domain\Model\District
      * @lazy
      */
     protected $district;
 
     /**
-     * Facebook
-     *
      * @var string
      */
     protected $facebook = '';
 
     /**
-     * Twitter
-     *
      * @var string
      */
     protected $twitter = '';
 
     /**
-     * Google+
-     *
      * @var string
      */
     protected $google = '';
 
     /**
-     * Tags
-     *
      * @var string
      */
     protected $tags = '';
 
     /**
-     * categories
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
      */
     protected $categories;
 
-    /**
-     * Constructor of this class.
-     */
     public function __construct()
     {
         $this->initStorageObjects();
@@ -182,9 +141,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the title
-     *
-     * @return string $title
+     * @return string
      */
     public function getTitle(): string
     {
@@ -192,10 +149,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle(string $title)
     {
@@ -203,9 +157,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the street
-     *
-     * @return string $street
+     * @return string
      */
     public function getStreet(): string
     {
@@ -213,10 +165,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the street
-     *
      * @param string $street
-     * @return void
      */
     public function setStreet(string $street)
     {
@@ -224,9 +173,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the house_number
-     *
-     * @return string $houseNumber
+     * @return string
      */
     public function getHouseNumber(): string
     {
@@ -234,10 +181,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the house_number
-     *
      * @param string $houseNumber
-     * @return void
      */
     public function setHouseNumber(string $houseNumber)
     {
@@ -245,9 +189,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the zip
-     *
-     * @return string $zip
+     * @return string
      */
     public function getZip(): string
     {
@@ -255,10 +197,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the zip
-     *
      * @param string $zip
-     * @return void
      */
     public function setZip(string $zip)
     {
@@ -266,9 +205,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the city
-     *
-     * @return string $city
+     * @return string
      */
     public function getCity(): string
     {
@@ -276,10 +213,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the city
-     *
      * @param string $city
-     * @return void
      */
     public function setCity(string $city)
     {
@@ -287,9 +221,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the telephone
-     *
-     * @return string $telephone
+     * @return string
      */
     public function getTelephone(): string
     {
@@ -297,10 +229,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the telephone
-     *
      * @param string $telephone
-     * @return void
      */
     public function setTelephone(string $telephone)
     {
@@ -308,9 +237,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the fax
-     *
-     * @return string $fax
+     * @return string
      */
     public function getFax(): string
     {
@@ -318,10 +245,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the fax
-     *
      * @param string $fax
-     * @return void
      */
     public function setFax(string $fax)
     {
@@ -329,9 +253,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the contactPerson
-     *
-     * @return string $contactPerson
+     * @return string
      */
     public function getContactPerson(): string
     {
@@ -339,10 +261,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the contactPerson
-     *
      * @param string $contactPerson
-     * @return void
      */
     public function setContactPerson(string $contactPerson)
     {
@@ -350,9 +269,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the contactTimes
-     *
-     * @return string $contactTimes
+     * @return string
      */
     public function getContactTimes(): string
     {
@@ -360,10 +277,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the contactTimes
-     *
      * @param string $contactTimes
-     * @return void
      */
     public function setContactTimes(string $contactTimes)
     {
@@ -371,9 +285,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the email
-     *
-     * @return string $email
+     * @return string
      */
     public function getEmail(): string
     {
@@ -381,10 +293,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the email
-     *
      * @param string $email
-     * @return void
      */
     public function setEmail(string $email)
     {
@@ -392,9 +301,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the website
-     *
-     * @return string $website
+     * @return string
      */
     public function getWebsite(): string
     {
@@ -402,10 +309,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the website
-     *
      * @param string $website
-     * @return void
      */
     public function setWebsite(string $website)
     {
@@ -413,9 +317,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the barrierFree
-     *
-     * @return bool $barrierFree
+     * @return bool
      */
     public function getBarrierFree(): bool
     {
@@ -423,10 +325,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the barrierFree
-     *
      * @param bool $barrierFree
-     * @return void
      */
     public function setBarrierFree(bool $barrierFree)
     {
@@ -434,8 +333,6 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the bool state of barrierFree
-     *
      * @return bool
      */
     public function isBarrierFree(): bool
@@ -444,9 +341,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the description
-     *
-     * @return string $description
+     * @return string
      */
     public function getDescription(): string
     {
@@ -454,10 +349,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the description
-     *
      * @param string $description
-     * @return void
      */
     public function setDescription(string $description)
     {
@@ -465,9 +357,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the txMaps2Uid
-     *
-     * @return int $txMaps2Uid
+     * @return int
      */
     public function getTxMaps2Uid(): int
     {
@@ -475,10 +365,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the txMaps2Uid
-     *
      * @param int $txMaps2Uid
-     * @return void
      */
     public function setTxMaps2Uid(int $txMaps2Uid)
     {
@@ -486,9 +373,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the district
-     *
-     * @return District|LazyLoadingProxy $district
+     * @return District|LazyLoadingProxy|null $district
      */
     public function getDistrict()
     {
@@ -496,20 +381,15 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the district
-     *
-     * @param District $district
-     * @return void
+     * @param District|null $district
      */
-    public function setDistrict(District $district)
+    public function setDistrict(District $district = null)
     {
         $this->district = $district;
     }
 
     /**
-     * Returns the facebook
-     *
-     * @return string $facebook
+     * @return string
      */
     public function getFacebook(): string
     {
@@ -517,10 +397,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the facebook
-     *
      * @param string $facebook
-     * @return void
      */
     public function setFacebook(string $facebook)
     {
@@ -528,9 +405,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the twitter
-     *
-     * @return string $twitter
+     * @return string
      */
     public function getTwitter(): string
     {
@@ -538,10 +413,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the twitter
-     *
      * @param string $twitter
-     * @return void
      */
     public function setTwitter(string $twitter)
     {
@@ -549,9 +421,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the google
-     *
-     * @return string $google
+     * @return string
      */
     public function getGoogle(): string
     {
@@ -559,10 +429,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the google
-     *
      * @param string $google
-     * @return void
      */
     public function setGoogle(string $google)
     {
@@ -570,9 +437,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the tags
-     *
-     * @return string $tags
+     * @return string
      */
     public function getTags(): string
     {
@@ -580,10 +445,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the tags
-     *
      * @param string $tags
-     * @return void
      */
     public function setTags(string $tags)
     {
@@ -591,9 +453,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the categories
-     *
-     * @return ObjectStorage $categories
+     * @return ObjectStorage
      */
     public function getCategories(): ObjectStorage
     {
@@ -601,10 +461,7 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the categories
-     *
      * @param ObjectStorage $categories
-     * @return void
      */
     public function setCategories(ObjectStorage $categories)
     {
@@ -612,23 +469,17 @@ class Helpdesk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Add category
-     *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
-     * @return void
+     * @param Category $category
      */
-    public function addCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category)
+    public function addCategory(Category $category)
     {
         $this->categories->attach($category);
     }
 
     /**
-     * Remove category
-     *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
-     * @return void
+     * @param Category $category
      */
-    public function removeCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category)
+    public function removeCategory(Category $category)
     {
         $this->categories->detach($category);
     }
