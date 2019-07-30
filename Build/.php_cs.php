@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the socialservices project.
+ * This file is part of the events2 project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -33,8 +33,15 @@ if (PHP_SAPI !== 'cli') {
 }
 // Define in which folders to search and which folders to exclude
 // Exclude some directories that are excluded by Git anyways to speed up the sniffing
-$finder = PhpCsFixer\Finder::create()
-    ->in(__DIR__ . '/../');
+if (version_compare(PHP_VERSION, '7.1.0', '<')) {
+    $finder = PhpCsFixer\Finder::create()
+        ->exclude('Classes/Routing')
+        ->in(__DIR__ . '/../');
+} else {
+    $finder = PhpCsFixer\Finder::create()
+        ->in(__DIR__ . '/../');
+}
+
 // Return a Code Sniffing configuration using
 // all sniffers needed for PSR-2
 // and additionally:
