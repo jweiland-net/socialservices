@@ -1,4 +1,8 @@
 <?php
+if (!defined('TYPO3_MODE')) {
+    die('Access denied.');
+}
+
 // add categories field to helpdesk table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
     'socialservices',
