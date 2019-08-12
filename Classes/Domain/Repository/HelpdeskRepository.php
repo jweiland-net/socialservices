@@ -80,7 +80,7 @@ class HelpdeskRepository extends Repository
             ->selectLiteral('UPPER(LEFT(title, 1)) as letter')
             ->from('tx_socialservices_domain_model_helpdesk')
             ->add('groupBy', 'letter')
-            ->add('orderBy', 'ASC');
+            ->add('orderBy', 'letter ASC');
 
         return $query->statement($queryBuilder)->execute(true);
     }
