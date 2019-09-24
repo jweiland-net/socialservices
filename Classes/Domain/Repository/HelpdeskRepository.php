@@ -18,7 +18,7 @@ namespace JWeiland\Socialservices\Domain\Repository;
 use JWeiland\Socialservices\Domain\Model\Search;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Persistence\Generic\Qom\OrInterface;
+use TYPO3\CMS\Extbase\Persistence\Generic\Qom\ConstraintInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -148,9 +148,9 @@ class HelpdeskRepository extends Repository
      *
      * @param QueryInterface $query
      * @param string $searchWord
-     * @return OrInterface
+     * @return ConstraintInterface
      */
-    protected function getConstraintForSearchWord(QueryInterface $query, string $searchWord): QueryResultInterface
+    protected function getConstraintForSearchWord(QueryInterface $query, string $searchWord): ConstraintInterface
     {
         // strtolower is not UTF-8 compatible
         $longStreetSearch = $searchWord;
