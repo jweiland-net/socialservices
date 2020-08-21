@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Social Services',
-    'description' => 'socialservices',
+    'description' => 'Manage social services to list them in frontend with a glossary and filter options.',
     'category' => 'plugin',
     'author' => 'Stefan Froemken',
     'author_email' => 'sfroemken@jweiland.net',
