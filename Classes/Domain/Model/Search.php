@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Socialservices\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the socialservices project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/socialservices.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Socialservices\Domain\Model;
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -64,7 +60,7 @@ class Search
     /**
      * @param string $letter
      */
-    public function setLetter(string $letter)
+    public function setLetter(string $letter): void
     {
         $this->letter = $letter;
     }
@@ -80,7 +76,7 @@ class Search
     /**
      * @param string $searchWord
      */
-    public function setSearchWord(string $searchWord)
+    public function setSearchWord(string $searchWord): void
     {
         $this->searchWord = $searchWord;
     }
@@ -96,7 +92,7 @@ class Search
     /**
      * @param int $category
      */
-    public function setCategory(int $category)
+    public function setCategory(int $category): void
     {
         $this->category = $category;
     }
@@ -112,7 +108,7 @@ class Search
     /**
      * @param int $subCategory
      */
-    public function setSubCategory(int $subCategory)
+    public function setSubCategory(int $subCategory): void
     {
         $this->subCategory = $subCategory;
     }
@@ -128,7 +124,7 @@ class Search
     /**
      * @param string $orderBy
      */
-    public function setOrderBy(string $orderBy)
+    public function setOrderBy(string $orderBy): void
     {
         $this->orderBy = $orderBy;
     }
@@ -144,7 +140,7 @@ class Search
     /**
      * @param string $direction
      */
-    public function setDirection(string $direction)
+    public function setDirection(string $direction): void
     {
         $this->direction = $direction;
     }

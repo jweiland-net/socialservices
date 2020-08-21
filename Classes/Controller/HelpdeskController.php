@@ -1,26 +1,21 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Socialservices\Controller;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the socialservices project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/socialservices.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
 
+namespace JWeiland\Socialservices\Controller;
+
+use JWeiland\Glossary2\Service\GlossaryService;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -45,14 +40,25 @@ class HelpdeskController extends ActionController
     protected $extConf;
 
     /**
-     * @var string
+     * @var GlossaryService
      */
-    protected $letters = '0-9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
+    protected $glossaryService;
+
+    public function __construct(HelpdeskRepository $helpdeskRepository, CategoryRepository $categoryRepository, ExtConf $extConf, GlossaryService $glossaryService)
+    {
+        if (method_exists(get_parent_class($this), '__construct')) {
+            parent::__construct();
+        }
+        $this->helpdeskRepository = $helpdeskRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->extConf = $extConf;
+        $this->glossaryService = $glossaryService;
+    }
 
     /**
      * Pre processing of all actions.
      */
-    public function initializeAction()
+    public function initializeAction(): void
     {
         // if this value was not set, then it will be filled with 0
         // but that is not good, because UriBuilder accepts 0 as pid, so it's better to set it to null
@@ -72,36 +78,12 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * @param HelpdeskRepository $helpdeskRepository
-     */
-    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository)
-    {
-        $this->helpdeskRepository = $helpdeskRepository;
-    }
-
-    /**
-     * @param CategoryRepository $categoryRepository
-     */
-    public function injectCategoryRepository(CategoryRepository $categoryRepository)
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
-    /**
-     * @param ExtConf $extConf
-     */
-    public function injectExtConf(ExtConf $extConf)
-    {
-        $this->extConf = $extConf;
-    }
-
-    /**
      * Action list
      *
-     * @param string $letter Show only records starting with this letter
-     * @validate $letter String, StringLength(minimum=0,maximum=1)
+     * @param string|null $letter Show only records starting with this letter
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", param="letter", options={"minimum": 0, "maximum": 3})
      */
-    public function listAction(string $letter = null)
+    public function listAction(?string $letter = null): void
     {
         if ($letter === null) {
             $helpdesks = $this->helpdeskRepository->findAll();
@@ -109,42 +91,15 @@ class HelpdeskController extends ActionController
             $helpdesks = $this->helpdeskRepository->findByStartingLetter($letter);
         }
         $this->view->assign('helpdesks', $helpdesks);
-        $this->view->assign('glossar', $this->getGlossar());
+        $this->view->assign('glossar', $this->glossaryService->buildGlossary(
+            $this->helpdeskRepository->getQueryBuilderToFindAllEntries(),
+            [
+                'extensionName' => 'socialservices',
+                'pluginName' => 'socialservices',
+                'controllerName' => 'Helpdesk',
+            ]
+        ));
         $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
-    }
-
-    /**
-     * Get an array with letters as keys for the glossar
-     *
-     * @return array Array with starting letters as keys
-     */
-    protected function getGlossar() : array
-    {
-        $glossar = [];
-        $availableLetters = $this->helpdeskRepository->getStartingLetters();
-        $possibleLetters = GeneralUtility::trimExplode(',', $this->letters);
-
-        // add all letters which we have found in DB
-        foreach ($availableLetters as $availableLetter) {
-            if (MathUtility::canBeInterpretedAsInteger($availableLetter['letter'])) {
-                $availableLetter['letter'] = '0-9';
-            }
-            // add only letters which are valid (do not add "§$%")
-            if (array_search($availableLetter['letter'], $possibleLetters) !== false) {
-                $glossar[$availableLetter['letter']] = true;
-            }
-        }
-
-        // add all valid letters which are not set/found by previous foreach
-        foreach ($possibleLetters as $possibleLetter) {
-            if (!array_key_exists($possibleLetter, $glossar)) {
-                $glossar[$possibleLetter] = false;
-            }
-        }
-
-        ksort($glossar, SORT_STRING);
-
-        return $glossar;
     }
 
     /**
@@ -152,7 +107,7 @@ class HelpdeskController extends ActionController
      *
      * @param Helpdesk $helpdesk
      */
-    public function showAction(Helpdesk $helpdesk)
+    public function showAction(Helpdesk $helpdesk): void
     {
         $this->view->assign('helpdesk', $helpdesk);
     }
@@ -160,9 +115,9 @@ class HelpdeskController extends ActionController
     /**
      * Search show.
      *
-     * @param Search $search
+     * @param Search|null $search
      */
-    public function searchAction(Search $search = null)
+    public function searchAction(?Search $search = null): void
     {
         if ($search instanceof Search) {
             $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
@@ -175,6 +130,6 @@ class HelpdeskController extends ActionController
         $this->view->assign('helpdesks', $helpdesks);
         $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
         $this->view->assign('search', $search);
-        $this->view->assign('glossar', $this->getGlossar());
+        $this->view->assign('glossar', $this->glossaryService->buildGlossary($this->helpdeskRepository->getQueryBuilderToFindAllEntries()));
     }
 }

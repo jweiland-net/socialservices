@@ -1,25 +1,23 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Socialservices\Domain\Repository;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the socialservices project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/socialservices.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
 
+namespace JWeiland\Socialservices\Domain\Repository;
+
 use JWeiland\Socialservices\Domain\Model\Search;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Generic\Qom\ConstraintInterface;
-use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -48,7 +46,7 @@ class HelpdeskRepository extends Repository
 
         $constraint = [];
 
-        if ($letter == '0-9') {
+        if ($letter === '0-9') {
             $constraint[] = $query->like('title', '0%');
             $constraint[] = $query->like('title', '1%');
             $constraint[] = $query->like('title', '2%');
@@ -63,26 +61,6 @@ class HelpdeskRepository extends Repository
             $constraint[] = $query->like('title', $letter . '%');
         }
         return $query->matching($query->logicalOr($constraint))->execute();
-    }
-
-    /**
-     * Get an array with available starting letters
-     *
-     * @return array
-     */
-    public function getStartingLetters(): array
-    {
-        /** @var Query $query */
-        $query = $this->createQuery();
-
-        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_socialservices_domain_model_helpdesk');
-        $queryBuilder
-            ->selectLiteral('UPPER(LEFT(title, 1)) as letter')
-            ->from('tx_socialservices_domain_model_helpdesk')
-            ->add('groupBy', 'letter')
-            ->add('orderBy', 'letter ASC');
-
-        return $query->statement($queryBuilder)->execute(true);
     }
 
     /**
@@ -180,6 +158,32 @@ class HelpdeskRepository extends Repository
         ];
 
         return $query->logicalOr($logicalOrConstraints);
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    public function getQueryBuilderToFindAllEntries(): QueryBuilder
+    {
+        $table = 'tx_socialservices_domain_model_helpdesk';
+        $query = $this->createQuery();
+        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable($table);
+        $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
+
+        // Do not set any SELECT, ORDER BY, GROUP BY statement. It will be set by glossary2 API
+        $queryBuilder
+            ->from($table)
+            ->where(
+                $queryBuilder->expr()->in(
+                    'pid',
+                    $queryBuilder->createNamedParameter(
+                        $query->getQuerySettings()->getStoragePageIds(),
+                        Connection::PARAM_INT_ARRAY
+                    )
+                )
+            );
+
+        return $queryBuilder;
     }
 
     /**

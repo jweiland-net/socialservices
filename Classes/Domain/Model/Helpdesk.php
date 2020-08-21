@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Socialservices\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the socialservices project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/socialservices.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Socialservices\Domain\Model;
 
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -27,7 +23,7 @@ class Helpdesk extends AbstractEntity
 {
     /**
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $title = '';
 
@@ -98,7 +94,7 @@ class Helpdesk extends AbstractEntity
 
     /**
      * @var \JWeiland\Socialservices\Domain\Model\District
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy()
      */
     protected $district;
 
@@ -135,7 +131,7 @@ class Helpdesk extends AbstractEntity
     /**
      * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->categories = new ObjectStorage();
     }
@@ -151,7 +147,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $title
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -167,7 +163,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $street
      */
-    public function setStreet(string $street)
+    public function setStreet(string $street): void
     {
         $this->street = $street;
     }
@@ -183,7 +179,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $houseNumber
      */
-    public function setHouseNumber(string $houseNumber)
+    public function setHouseNumber(string $houseNumber): void
     {
         $this->houseNumber = $houseNumber;
     }
@@ -199,7 +195,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $zip
      */
-    public function setZip(string $zip)
+    public function setZip(string $zip): void
     {
         $this->zip = $zip;
     }
@@ -215,7 +211,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $city
      */
-    public function setCity(string $city)
+    public function setCity(string $city): void
     {
         $this->city = $city;
     }
@@ -231,7 +227,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $telephone
      */
-    public function setTelephone(string $telephone)
+    public function setTelephone(string $telephone): void
     {
         $this->telephone = $telephone;
     }
@@ -247,7 +243,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $fax
      */
-    public function setFax(string $fax)
+    public function setFax(string $fax): void
     {
         $this->fax = $fax;
     }
@@ -263,7 +259,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $contactPerson
      */
-    public function setContactPerson(string $contactPerson)
+    public function setContactPerson(string $contactPerson): void
     {
         $this->contactPerson = $contactPerson;
     }
@@ -279,7 +275,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $contactTimes
      */
-    public function setContactTimes(string $contactTimes)
+    public function setContactTimes(string $contactTimes): void
     {
         $this->contactTimes = $contactTimes;
     }
@@ -295,7 +291,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $email
      */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -311,7 +307,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $website
      */
-    public function setWebsite(string $website)
+    public function setWebsite(string $website): void
     {
         $this->website = $website;
     }
@@ -327,7 +323,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param bool $barrierFree
      */
-    public function setBarrierFree(bool $barrierFree)
+    public function setBarrierFree(bool $barrierFree): void
     {
         $this->barrierFree = $barrierFree;
     }
@@ -351,7 +347,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $description
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
@@ -367,7 +363,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param int $txMaps2Uid
      */
-    public function setTxMaps2Uid(int $txMaps2Uid)
+    public function setTxMaps2Uid(int $txMaps2Uid): void
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }
@@ -383,7 +379,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param District|null $district
      */
-    public function setDistrict(District $district = null)
+    public function setDistrict(District $district = null): void
     {
         $this->district = $district;
     }
@@ -399,7 +395,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $facebook
      */
-    public function setFacebook(string $facebook)
+    public function setFacebook(string $facebook): void
     {
         $this->facebook = $facebook;
     }
@@ -415,7 +411,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $twitter
      */
-    public function setTwitter(string $twitter)
+    public function setTwitter(string $twitter): void
     {
         $this->twitter = $twitter;
     }
@@ -431,7 +427,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $google
      */
-    public function setGoogle(string $google)
+    public function setGoogle(string $google): void
     {
         $this->google = $google;
     }
@@ -447,7 +443,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param string $tags
      */
-    public function setTags(string $tags)
+    public function setTags(string $tags): void
     {
         $this->tags = $tags;
     }
@@ -463,7 +459,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param ObjectStorage $categories
      */
-    public function setCategories(ObjectStorage $categories)
+    public function setCategories(ObjectStorage $categories): void
     {
         $this->categories = $categories;
     }
@@ -471,7 +467,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param Category $category
      */
-    public function addCategory(Category $category)
+    public function addCategory(Category $category): void
     {
         $this->categories->attach($category);
     }
@@ -479,7 +475,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @param Category $category
      */
-    public function removeCategory(Category $category)
+    public function removeCategory(Category $category): void
     {
         $this->categories->detach($category);
     }

@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Socialservices\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the socialservices project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/socialservices.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Socialservices\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
@@ -24,7 +20,7 @@ class District extends AbstractEntity
 {
     /**
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $district = '';
 
@@ -39,7 +35,7 @@ class District extends AbstractEntity
     /**
      * @param string $district
      */
-    public function setDistrict(string $district)
+    public function setDistrict(string $district): void
     {
         $this->district = $district;
     }
