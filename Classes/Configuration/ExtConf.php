@@ -29,10 +29,10 @@ class ExtConf implements SingletonInterface
     {
         $extConf = [];
         if (class_exists(ExtensionConfiguration::class)) {
-            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('reserve');
-        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['reserve'])) {
+            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('socialservices');
+        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'])) {
             $extConf = unserialize(
-                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['reserve'],
+                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'],
                 ['allowed_classes' => false]
             );
         }
