@@ -55,8 +55,8 @@
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.twitter">
 				<source>Twitter</source>
 			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.google">
-				<source>Google+</source>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
+				<source>Instagram</source>
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
 				<source>Tags</source>

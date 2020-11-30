@@ -111,7 +111,7 @@ class Helpdesk extends AbstractEntity
     /**
      * @var string
      */
-    protected $google = '';
+    protected $instagram = '';
 
     /**
      * @var string
@@ -419,17 +419,17 @@ class Helpdesk extends AbstractEntity
     /**
      * @return string
      */
-    public function getGoogle(): string
+    public function getInstagram(): string
     {
-        return $this->google;
+        return $this->instagram;
     }
 
     /**
-     * @param string $google
+     * @param string $instagram
      */
-    public function setGoogle(string $google): void
+    public function setInstagram(string $instagram): void
     {
-        $this->google = $google;
+        $this->instagram = $instagram;
     }
 
     /**

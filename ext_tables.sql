@@ -21,7 +21,7 @@ CREATE TABLE tx_socialservices_domain_model_helpdesk (
 	description text NOT NULL,
 	facebook varchar(255) DEFAULT '' NOT NULL,
 	twitter varchar(255) DEFAULT '' NOT NULL,
-	google varchar(255) DEFAULT '' NOT NULL,
+	instagram varchar(255) DEFAULT '' NOT NULL,
 	tags varchar(255) DEFAULT '' NOT NULL,
 	district int(11) unsigned DEFAULT '0',
 
