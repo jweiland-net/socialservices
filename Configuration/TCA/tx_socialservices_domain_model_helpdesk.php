@@ -22,12 +22,12 @@ return [
         'iconfile' => 'EXT:socialservices/Resources/Public/Icons/tx_socialservices_domain_model_helpdesk.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, house_number, zip, city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, google, tags',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, house_number, zip, city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags',
     ],
     'types' => [
         '1' => [
             'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, house_number, zip,
-            city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, google, tags,
+            city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
@@ -296,9 +296,9 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'google' => [
+        'instagram' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_helpdesk.google',
+            'label' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_helpdesk.instagram',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

@@ -72,9 +72,9 @@
 				<source>Twitter</source>
 				<target>Twitter</target>
 			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.google">
-				<source>Google</source>
-				<target>Google+</target>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
+				<source>Instagram</source>
+				<target>Instagram</target>
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
 				<source>Tags</source>
