@@ -17,8 +17,8 @@
 			<trans-unit id="tx_socialservices_domain_model_helpdesk">
 				<source>Helpdesk</source>
 			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.title">
-				<source>Title</source>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.path_segment">
+				<source>Segment for URL</source>
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.category">
 				<source>Category</source>
