@@ -1,16 +1,16 @@
 mod.wizards.newContentElement.wizardItems.plugins {
   elements {
-    yellowpages2-directory {
-      iconIdentifier = ext-yellowpages2-directory-wizard-icon
-      title = LLL:EXT:yellowpages2/Resources/Private/Language/locallang_db.xlf:plugin.directory.title
-      description = LLL:EXT:yellowpages2/Resources/Private/Language/locallang_db.xlf:plugin.directory.description
+    socialservices-socialservices {
+      iconIdentifier = ext-socialservices-socialservices-wizard-icon
+      title = LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:plugin.socialservices.title
+      description = LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:plugin.socialservices.description
       tt_content_defValues {
         CType = list
-        list_type = yellowpages2_directory
+        list_type = socialservices_socialservices
       }
     }
   }
 }
 
 # Add CType Preview
-mod.web_layout.tt_content.preview.list.yellowpages2_directory = EXT:yellowpages2/Resources/Private/Templates/PluginPreview/TableView.html
+mod.web_layout.tt_content.preview.list.socialservices_socialservices = EXT:socialservices/Resources/Private/Templates/PluginPreview/TableView.html

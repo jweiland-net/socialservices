@@ -26,13 +26,22 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, house_number, zip,
-            city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags,
+            'showitem' => '--palette--;;languageHidden, title, 
+            --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;districtBarrierFree,
+            --palette--;;contact, --palette--;;telephoneFax, --palette--;;emailWebsite, 
+            description, facebook, twitter, instagram, tags,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
     ],
     'palettes' => [
+        'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
+        'streetHouseNumber' => ['showitem' => 'street, house_number'],
+        'zipCity' => ['showitem' => 'zip, city'],
+        'districtBarrierFree' => ['showitem' => 'district, barrier_free'],
+        'contact' => ['showitem' => 'contact_person, contact_times'],
+        'telephoneFax' => ['showitem' => 'telephone, fax'],
+        'emailWebsite' => ['showitem' => 'email, website'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]
