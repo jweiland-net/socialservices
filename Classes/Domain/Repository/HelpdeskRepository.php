@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Domain\Repository;
 
+use JWeiland\Glossary2\Service\GlossaryService;
 use JWeiland\Socialservices\Domain\Model\Search;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -18,6 +19,7 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Generic\Qom\ConstraintInterface;
+use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -40,27 +42,25 @@ class HelpdeskRepository extends Repository
      * @param string $letter
      * @return QueryResultInterface
      */
-    public function findByStartingLetter(string $letter): QueryResultInterface
+    public function findByLetter(string $letter): QueryResultInterface
     {
+        /** @var Query $query */
         $query = $this->createQuery();
+        $queryBuilder = $this->getQueryBuilderForHelpdesk($query);
 
-        $constraint = [];
-
-        if ($letter === '0-9') {
-            $constraint[] = $query->like('title', '0%');
-            $constraint[] = $query->like('title', '1%');
-            $constraint[] = $query->like('title', '2%');
-            $constraint[] = $query->like('title', '3%');
-            $constraint[] = $query->like('title', '4%');
-            $constraint[] = $query->like('title', '5%');
-            $constraint[] = $query->like('title', '6%');
-            $constraint[] = $query->like('title', '7%');
-            $constraint[] = $query->like('title', '8%');
-            $constraint[] = $query->like('title', '9%');
-        } else {
-            $constraint[] = $query->like('title', $letter . '%');
+        if ($letter) {
+            $glossaryService = GeneralUtility::makeInstance(GlossaryService::class);
+            $queryBuilder
+                ->where(
+                    $glossaryService->getLetterConstraintForDoctrineQuery(
+                        $queryBuilder,
+                        'h.title',
+                        $letter
+                    )
+                );
         }
-        return $query->matching($query->logicalOr($constraint))->execute();
+
+        return $query->statement($queryBuilder)->execute();
     }
 
     /**
@@ -77,24 +77,6 @@ class HelpdeskRepository extends Repository
         // if a searchWord is set, do not process other filtering methods
         if ($search->getSearchWord()) {
             $constraints[] = $this->getConstraintForSearchWord($query, $search->getSearchWord());
-        } elseif ($search->getLetter()) {
-            // if a letter is set, do not process other filtering methods
-            $constraintOr = [];
-            if ($search->getLetter() === '0-9') {
-                $constraintOr[] = $query->like('sortTitle', '0%');
-                $constraintOr[] = $query->like('sortTitle', '1%');
-                $constraintOr[] = $query->like('sortTitle', '2%');
-                $constraintOr[] = $query->like('sortTitle', '3%');
-                $constraintOr[] = $query->like('sortTitle', '4%');
-                $constraintOr[] = $query->like('sortTitle', '5%');
-                $constraintOr[] = $query->like('sortTitle', '6%');
-                $constraintOr[] = $query->like('sortTitle', '7%');
-                $constraintOr[] = $query->like('sortTitle', '8%');
-                $constraintOr[] = $query->like('sortTitle', '9%');
-            } else {
-                $constraintOr[] = $query->like('sortTitle', $search->getLetter() . '%');
-            }
-            $constraints[] = $query->logicalOr($constraintOr);
         } else {
             // add (Sub-)Category
             if ($search->getSubCategory()) {
@@ -160,37 +142,30 @@ class HelpdeskRepository extends Repository
         return $query->logicalOr($logicalOrConstraints);
     }
 
-    /**
-     * @return QueryBuilder
-     */
-    public function getQueryBuilderToFindAllEntries(): QueryBuilder
+    protected function getQueryBuilderForHelpdesk(QueryInterface $extbaseQuery): QueryBuilder
     {
-        $table = 'tx_socialservices_domain_model_helpdesk';
-        $query = $this->createQuery();
-        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable($table);
+        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_yellowpages2_domain_model_company');
         $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
-
-        // Do not set any SELECT, ORDER BY, GROUP BY statement. It will be set by glossary2 API
-        $queryBuilder
-            ->from($table)
+        return $queryBuilder
+            ->select('*')
+            ->from('tx_socialservices_domain_model_helpdesk', 'h')
             ->where(
                 $queryBuilder->expr()->in(
-                    'pid',
+                    'h.pid',
                     $queryBuilder->createNamedParameter(
-                        $query->getQuerySettings()->getStoragePageIds(),
+                        $extbaseQuery->getQuerySettings()->getStoragePageIds(),
                         Connection::PARAM_INT_ARRAY
                     )
                 )
-            );
-
-        return $queryBuilder;
+            )
+            ->orderBy('h.title', 'ASC');
     }
 
-    /**
-     * Get TYPO3s Connection Pool
-     *
-     * @return ConnectionPool
-     */
+    public function getQueryBuilderToFindAllEntries(): QueryBuilder
+    {
+        return $this->getQueryBuilderForHelpdesk($this->createQuery());
+    }
+
     protected function getConnectionPool(): ConnectionPool
     {
         return GeneralUtility::makeInstance(ConnectionPool::class);

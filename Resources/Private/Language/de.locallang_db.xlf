@@ -4,15 +4,18 @@
 		  product-name="socialservices">
 		<header/>
 		<body>
-
 			<trans-unit id="plugin.title">
 				<source>Social Services</source>
 				<target>Sozialberatungsstellen</target>
 			</trans-unit>
 
-			<trans-unit id="tabs.category">
-				<source>Category</source>
-				<target>Kategorie</target>
+			<trans-unit id="plugin.socialservices.title">
+				<source>Social Services</source>
+				<target>Sozialberatungsstellen</target>
+			</trans-unit>
+			<trans-unit id="plugin.socialservices.description">
+				<source>Inserts a list of social services. Above the social service listing you can use the a-z navigation to reduce the social services to its starting letter.</source>
+				<target>Einbindung von Sozialen Beratungsstellen. Über den Sozialen Beratungsstellen kann mittels A-Z Navigation direkt zu gewählten Beratungsstellen navigiert werden.</target>
 			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_helpdesk">

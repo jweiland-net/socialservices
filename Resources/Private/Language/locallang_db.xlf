@@ -3,13 +3,15 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices">
 		<header/>
 		<body>
-
 			<trans-unit id="plugin.title">
 				<source>Social Services</source>
 			</trans-unit>
 
-			<trans-unit id="tabs.category">
-				<source>Category</source>
+			<trans-unit id="plugin.socialservices.title">
+				<source>Social Services</source>
+			</trans-unit>
+			<trans-unit id="plugin.socialservices.description">
+				<source>Inserts a list of social services. Above the social service listing you can use the a-z navigation to reduce the social services to its starting letter.</source>
 			</trans-unit>
 
 			<trans-unit id="tx_socialservices_domain_model_helpdesk">

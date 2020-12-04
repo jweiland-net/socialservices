@@ -27,37 +27,24 @@ class ExtConf implements SingletonInterface
 
     public function __construct()
     {
-        $extConf = [];
-        if (class_exists(ExtensionConfiguration::class)) {
-            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('socialservices');
-        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'])) {
-            $extConf = unserialize(
-                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['socialservices'],
-                ['allowed_classes' => false]
-            );
-        }
+        // get global configuration
+        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('socialservices');
         if (is_array($extConf) && count($extConf)) {
             // call setter method foreach configuration entry
             foreach ($extConf as $key => $value) {
                 $methodName = 'set' . ucfirst($key);
                 if (method_exists($this, $methodName)) {
-                    $this->$methodName($value);
+                    $this->$methodName((string)$value);
                 }
             }
         }
     }
 
-    /**
-     * @return int
-     */
     public function getRootCategory(): int
     {
         return $this->rootCategory;
     }
 
-    /**
-     * @param string $rootCategory
-     */
     public function setRootCategory(string $rootCategory): void
     {
         $this->rootCategory = (int)$rootCategory;
