@@ -78,33 +78,20 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * Action list
-     *
-     * @param string|null $letter Show only records starting with this letter
+     * @param string $letter Show only records starting with this letter
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String", param="letter")
      * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", param="letter", options={"minimum": 0, "maximum": 3})
      */
-    public function listAction(?string $letter = null): void
+    public function listAction(string $letter = ''): void
     {
-        if ($letter === null) {
-            $helpdesks = $this->helpdeskRepository->findAll();
-        } else {
-            $helpdesks = $this->helpdeskRepository->findByStartingLetter($letter);
-        }
-        $this->view->assign('helpdesks', $helpdesks);
-        $this->view->assign('glossar', $this->glossaryService->buildGlossary(
-            $this->helpdeskRepository->getQueryBuilderToFindAllEntries(),
-            [
-                'extensionName' => 'socialservices',
-                'pluginName' => 'socialservices',
-                'controllerName' => 'Helpdesk',
-            ]
-        ));
-        $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
+        $this->view->assignMultiple([
+            'helpdesks' => $this->helpdeskRepository->findByLetter($letter),
+            'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory())
+        ]);
+        $this->assignGlossary();
     }
 
     /**
-     * Action show
-     *
      * @param Helpdesk $helpdesk
      */
     public function showAction(Helpdesk $helpdesk): void
@@ -113,23 +100,37 @@ class HelpdeskController extends ActionController
     }
 
     /**
-     * Search show.
-     *
-     * @param Search|null $search
+     * @param Search $search
      */
-    public function searchAction(?Search $search = null): void
+    public function searchAction(Search $search): void
     {
-        if ($search instanceof Search) {
-            $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
-            if ($search->getCategory()) {
-                $this->view->assign('subCategories', $this->categoryRepository->findByParent($search->getCategory()));
-            }
-        } else {
-            $helpdesks = $this->helpdeskRepository->findAll();
+        $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
+
+        if ($search->getCategory()) {
+            $this->view->assign('subCategories', $this->categoryRepository->findByParent($search->getCategory()));
         }
-        $this->view->assign('helpdesks', $helpdesks);
-        $this->view->assign('categories', $this->categoryRepository->findByParent($this->extConf->getRootCategory()));
-        $this->view->assign('search', $search);
-        $this->view->assign('glossar', $this->glossaryService->buildGlossary($this->helpdeskRepository->getQueryBuilderToFindAllEntries()));
+
+        $this->view->assignMultiple([
+            'helpdesks' => $helpdesks,
+            'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
+            'search' => $search
+        ]);
+        $this->assignGlossary();
+    }
+
+    protected function assignGlossary(): void
+    {
+        $this->view->assign(
+            'glossar',
+            $this->glossaryService->buildGlossary(
+                $this->helpdeskRepository->getQueryBuilderToFindAllEntries(),
+                [
+                    'extensionName' => 'socialservices',
+                    'pluginName' => 'socialservices',
+                    'controllerName' => 'Helpdesk',
+                    'column' => 'title'
+                ]
+            )
+        );
     }
 }
