@@ -144,7 +144,7 @@ class HelpdeskRepository extends Repository
 
     protected function getQueryBuilderForHelpdesk(QueryInterface $extbaseQuery): QueryBuilder
     {
-        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_yellowpages2_domain_model_company');
+        $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_socialservices_domain_model_helpdesk');
         $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
         return $queryBuilder
             ->select('*')
