@@ -22,11 +22,11 @@ return [
         'iconfile' => 'EXT:socialservices/Resources/Public/Icons/tx_socialservices_domain_model_helpdesk.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, street, house_number, zip, city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path_segment, street, house_number, zip, city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags',
     ],
     'types' => [
         '1' => [
-            'showitem' => '--palette--;;languageHidden, title, 
+            'showitem' => '--palette--;;languageHidden, title, path_segment,
             --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;districtBarrierFree,
             --palette--;;contact, --palette--;;telephoneFax, --palette--;;emailWebsite, 
             description, facebook, twitter, instagram, tags,
@@ -158,6 +158,26 @@ return [
                 'size' => 30,
                 'eval' => 'trim,required'
             ],
+        ],
+        'path_segment' => [
+            'label' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_helpdesk.path_segment',
+            'displayCond' => 'VERSION:IS:false',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    // Do not add pageSlug, as we add pageSlug on our own in RouteEnhancer
+                    'prefixParentPageSlug' => false,
+                    'fieldSeparator' => '-',
+                    'replacements' => [
+                        '/' => '-'
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ]
         ],
         'street' => [
             'exclude' => 1,

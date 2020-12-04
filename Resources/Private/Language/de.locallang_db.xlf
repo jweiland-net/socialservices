@@ -26,8 +26,13 @@
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
+			<trans-unit id="tx_socialservices_domain_model_helpdesk.path_segment">
+				<source>Segment for URL</source>
+				<target>Abschnitt für URL</target>
+			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.category">
 				<source>Category</source>
+				<target>Kategorie</target>
 			</trans-unit>
 			<trans-unit id="tx_socialservices_domain_model_helpdesk.street">
 				<source>Street</source>

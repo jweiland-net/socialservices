@@ -6,6 +6,11 @@
 ChangeLog
 =========
 
+**Version 3.0.2**
+
+- Add path_segment
+- Add UpgradeWizard for Slugs
+
 **Version 3.0.1**
 
 - Remove title from SVG icons
