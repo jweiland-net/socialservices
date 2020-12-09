@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 3.0.3**
+
+- Do not load district with Lazy loading
+
 **Version 3.0.2**
 
 - Add path_segment
