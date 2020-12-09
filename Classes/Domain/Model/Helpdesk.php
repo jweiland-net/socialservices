@@ -98,7 +98,6 @@ class Helpdesk extends AbstractEntity
 
     /**
      * @var \JWeiland\Socialservices\Domain\Model\District
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $district;
 
