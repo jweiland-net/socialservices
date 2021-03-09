@@ -6,6 +6,15 @@
 ChangeLog
 =========
 
+**Version 3.0.5**
+
+- Add Search model to List view
+- Update Test env
+
+**Version 3.0.4**
+
+- Use unique instead of uniqueInSite for slug
+
 **Version 3.0.3**
 
 - Do not load district with Lazy loading
