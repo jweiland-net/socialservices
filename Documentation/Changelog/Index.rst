@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 3.0.6**
+
+- Respect ordering
+
 **Version 3.0.5**
 
 - Add Search model to List view
