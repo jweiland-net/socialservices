@@ -23,17 +23,11 @@ class SearchTest extends UnitTestCase
      */
     protected $subject;
 
-    /**
-     * set up.
-     */
     public function setUp()
     {
         $this->subject = new Search();
     }
 
-    /**
-     * tear down.
-     */
     public function tearDown()
     {
         unset($this->subject);
@@ -229,7 +223,7 @@ class SearchTest extends UnitTestCase
     public function getOrderByInitiallyReturnsEmptyString()
     {
         self::assertSame(
-            '',
+            'title',
             $this->subject->getOrderBy()
         );
     }
