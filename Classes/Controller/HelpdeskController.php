@@ -16,6 +16,7 @@ use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -86,7 +87,8 @@ class HelpdeskController extends ActionController
     {
         $this->view->assignMultiple([
             'helpdesks' => $this->helpdeskRepository->findByLetter($letter),
-            'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory())
+            'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
+            'search' => GeneralUtility::makeInstance(Search::class)
         ]);
         $this->assignGlossary();
     }
