@@ -42,7 +42,7 @@ class Search
     /**
      * @var string
      */
-    protected $orderBy = '';
+    protected $orderBy = 'title';
 
     /**
      * @var string
