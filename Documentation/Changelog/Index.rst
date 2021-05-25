@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 3.0.7**
+
+- Move SlugHelper from constructor argument into getSlugHelper()
+
 **Version 3.0.6**
 
 - Respect ordering
