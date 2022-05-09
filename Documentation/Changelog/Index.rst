@@ -6,6 +6,13 @@
 ChangeLog
 =========
 
+**Version 3.1.0**
+
+- Add func tests for ExtConf
+- Update files for github actions
+- use inject methods in controller
+- Set glossary2 dependency to 5.0.0
+
 **Version 3.0.7**
 
 - Move SlugHelper from constructor argument into getSlugHelper()
