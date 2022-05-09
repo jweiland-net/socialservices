@@ -45,20 +45,26 @@ class HelpdeskController extends ActionController
      */
     protected $glossaryService;
 
-    public function __construct(HelpdeskRepository $helpdeskRepository, CategoryRepository $categoryRepository, ExtConf $extConf, GlossaryService $glossaryService)
+    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository): void
     {
-        if (method_exists(get_parent_class($this), '__construct')) {
-            parent::__construct();
-        }
         $this->helpdeskRepository = $helpdeskRepository;
+    }
+
+    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    {
         $this->categoryRepository = $categoryRepository;
+    }
+
+    public function injectExtConf(ExtConf $extConf): void
+    {
         $this->extConf = $extConf;
+    }
+
+    public function injectGlossaryService(GlossaryService $glossaryService): void
+    {
         $this->glossaryService = $glossaryService;
     }
 
-    /**
-     * Pre processing of all actions.
-     */
     public function initializeAction(): void
     {
         // if this value was not set, then it will be filled with 0

@@ -35,7 +35,7 @@ class PathSegmentHelper
      */
     public function updatePathSegmentForHelpdesk(Helpdesk $helpdesk): void
     {
-        // First of all, we have to check, if an UID is available
+        // First, we have to check, if an UID is available
         if (!$helpdesk->getUid()) {
             $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
             $persistenceManager = $objectManager->get(PersistenceManagerInterface::class);
