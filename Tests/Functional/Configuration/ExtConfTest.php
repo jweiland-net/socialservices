@@ -51,7 +51,7 @@ class ExtConfTest extends FunctionalTestCase
      */
     public function getRootCategoryInitiallyReturnsZero(): void
     {
-        $this->assertSame(
+        self::assertSame(
             0,
             $this->subject->getRootCategory()
         );
@@ -64,7 +64,7 @@ class ExtConfTest extends FunctionalTestCase
     {
         $this->subject->setRootCategory('123Test');
 
-        $this->assertSame(
+        self::assertSame(
             123,
             $this->subject->getRootCategory()
         );
