@@ -16,6 +16,7 @@ use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -128,16 +129,26 @@ class HelpdeskController extends ActionController
 
     protected function assignGlossary(): void
     {
+        $options = [
+            'extensionName' => 'socialservices',
+            'pluginName' => 'socialservices',
+            'controllerName' => 'Helpdesk',
+            'column' => 'title',
+            'settings' => $this->settings
+        ];
+
+        if (
+            isset($this->settings['glossary'])
+            && is_array($this->settings['glossary'])
+        ) {
+            ArrayUtility::mergeRecursiveWithOverrule($options, $this->settings['glossary']);
+        }
+
         $this->view->assign(
             'glossar',
             $this->glossaryService->buildGlossary(
                 $this->helpdeskRepository->getQueryBuilderToFindAllEntries(),
-                [
-                    'extensionName' => 'socialservices',
-                    'pluginName' => 'socialservices',
-                    'controllerName' => 'Helpdesk',
-                    'column' => 'title'
-                ]
+                $options
             )
         );
     }
