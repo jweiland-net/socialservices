@@ -11,18 +11,17 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Controller;
 
-use JWeiland\Glossary2\Service\GlossaryService;
+use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Main controller to list and show helpdesks
+ * Main controller to list and show records of type helpdesk
  */
 class HelpdeskController extends ActionController
 {
@@ -41,11 +40,6 @@ class HelpdeskController extends ActionController
      */
     protected $extConf;
 
-    /**
-     * @var GlossaryService
-     */
-    protected $glossaryService;
-
     public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository): void
     {
         $this->helpdeskRepository = $helpdeskRepository;
@@ -59,11 +53,6 @@ class HelpdeskController extends ActionController
     public function injectExtConf(ExtConf $extConf): void
     {
         $this->extConf = $extConf;
-    }
-
-    public function injectGlossaryService(GlossaryService $glossaryService): void
-    {
-        $this->glossaryService = $glossaryService;
     }
 
     public function initializeAction(): void
@@ -92,12 +81,11 @@ class HelpdeskController extends ActionController
      */
     public function listAction(string $letter = ''): void
     {
-        $this->view->assignMultiple([
+        $this->postProcessAndAssignFluidVariables([
             'helpdesks' => $this->helpdeskRepository->findByLetter($letter),
             'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
             'search' => GeneralUtility::makeInstance(Search::class)
         ]);
-        $this->assignGlossary();
     }
 
     /**
@@ -105,7 +93,9 @@ class HelpdeskController extends ActionController
      */
     public function showAction(Helpdesk $helpdesk): void
     {
-        $this->view->assign('helpdesk', $helpdesk);
+        $this->postProcessAndAssignFluidVariables([
+            'helpdesk' => $helpdesk
+        ]);
     }
 
     /**
@@ -113,43 +103,30 @@ class HelpdeskController extends ActionController
      */
     public function searchAction(Search $search): void
     {
-        $helpdesks = $this->helpdeskRepository->searchHelpdesks($search);
-
+        $subCategories = [];
         if ($search->getCategory()) {
-            $this->view->assign('subCategories', $this->categoryRepository->findByParent($search->getCategory()));
+            $subCategories = $this->categoryRepository->findByParent($search->getCategory());
         }
 
-        $this->view->assignMultiple([
-            'helpdesks' => $helpdesks,
+        $this->postProcessAndAssignFluidVariables([
+            'helpdesks' => $this->helpdeskRepository->searchHelpdesks($search),
             'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
+            'subCategories' => $subCategories,
             'search' => $search
         ]);
-        $this->assignGlossary();
     }
 
-    protected function assignGlossary(): void
+    protected function postProcessAndAssignFluidVariables(array $variables = []): void
     {
-        $options = [
-            'extensionName' => 'socialservices',
-            'pluginName' => 'socialservices',
-            'controllerName' => 'Helpdesk',
-            'column' => 'title',
-            'settings' => $this->settings
-        ];
-
-        if (
-            isset($this->settings['glossary'])
-            && is_array($this->settings['glossary'])
-        ) {
-            ArrayUtility::mergeRecursiveWithOverrule($options, $this->settings['glossary']);
-        }
-
-        $this->view->assign(
-            'glossar',
-            $this->glossaryService->buildGlossary(
-                $this->helpdeskRepository->getQueryBuilderToFindAllEntries(),
-                $options
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                $variables
             )
         );
+
+        $this->view->assignMultiple($event->getFluidVariables());
     }
 }
