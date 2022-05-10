@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Controller;
 
-use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
+use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
