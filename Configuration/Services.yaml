@@ -6,3 +6,14 @@ services:
 
   JWeiland\Socialservices\:
     resource: '../Classes/*'
+
+  JWeiland\Socialservices\EventListener\AddPaginatorEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent
+
+  JWeiland\Socialservices\EventListener\AddGlossaryEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent
+      after: JWeiland\Socialservices\EventListener\AddPaginatorEventListener
