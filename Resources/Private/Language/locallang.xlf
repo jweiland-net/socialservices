@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices">
 		<header/>
 		<body>
-
 			<trans-unit id="tx_socialservices_domain_model_helpdesk">
 				<source>Helpdesk</source>
 			</trans-unit>
@@ -98,6 +97,19 @@
 			</trans-unit>
 			<trans-unit id="altTextMapImg">
 				<source>Map</source>
+			</trans-unit>
+
+			<trans-unit id="pageBrowser.first">
+				<source>First</source>
+			</trans-unit>
+			<trans-unit id="pageBrowser.previous">
+				<source>Previous</source>
+			</trans-unit>
+			<trans-unit id="pageBrowser.next">
+				<source>Next</source>
+			</trans-unit>
+			<trans-unit id="pageBrowser.last">
+				<source>Last</source>
 			</trans-unit>
 		</body>
 	</file>
