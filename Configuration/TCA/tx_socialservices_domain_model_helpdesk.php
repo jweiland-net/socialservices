@@ -19,7 +19,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,street,zip,city,telephone,fax,contact_person,email,website,description,tags,district,',
-        'iconfile' => 'EXT:socialservices/Resources/Public/Icons/tx_socialservices_domain_model_helpdesk.gif'
+        'iconfile' => 'EXT:socialservices/Resources/Public/Icons/tx_socialservices_domain_model_helpdesk.svg'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path_segment, street, house_number, zip, city, district, telephone, fax, contact_person, contact_times, email, website, barrier_free, description, facebook, twitter, instagram, tags',
