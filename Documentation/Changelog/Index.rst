@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 3.1.1**
+
+- Add TS settings to GlossaryService
+
 **Version 3.1.0**
 
 - Add func tests for ExtConf
