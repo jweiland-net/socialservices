@@ -11,67 +11,18 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Controller;
 
-use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
-use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
-use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Main controller to list and show records of type helpdesk
  */
-class HelpdeskController extends ActionController
+class HelpdeskController extends AbstractController
 {
-    /**
-     * @var HelpdeskRepository
-     */
-    protected $helpdeskRepository;
-
-    /**
-     * @var CategoryRepository
-     */
-    protected $categoryRepository;
-
-    /**
-     * @var ExtConf
-     */
-    protected $extConf;
-
-    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository): void
+    public function initializeListAction(): void
     {
-        $this->helpdeskRepository = $helpdeskRepository;
-    }
-
-    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
-    public function injectExtConf(ExtConf $extConf): void
-    {
-        $this->extConf = $extConf;
-    }
-
-    public function initializeAction(): void
-    {
-        // if this value was not set, then it will be filled with 0
-        // but that is not good, because UriBuilder accepts 0 as pid, so it's better to set it to null
-        if (empty($this->settings['pidOfDetailPage'])) {
-            $this->settings['pidOfDetailPage'] = null;
-        }
-        if ($this->arguments->hasArgument('search')) {
-            $this->arguments->getArgument('search')
-                ->getPropertyMappingConfiguration()
-                ->allowProperties(
-                    'searchWord',
-                    'letter',
-                    'category',
-                    'subCategory'
-                );
-        }
+        $this->preProcessControllerAction();
     }
 
     /**
@@ -88,6 +39,11 @@ class HelpdeskController extends ActionController
         ]);
     }
 
+    public function initializeShowAction(): void
+    {
+        $this->preProcessControllerAction();
+    }
+
     /**
      * @param Helpdesk $helpdesk
      */
@@ -96,6 +52,11 @@ class HelpdeskController extends ActionController
         $this->postProcessAndAssignFluidVariables([
             'helpdesk' => $helpdesk
         ]);
+    }
+
+    public function initializeSearchAction(): void
+    {
+        $this->preProcessControllerAction();
     }
 
     /**
@@ -114,19 +75,5 @@ class HelpdeskController extends ActionController
             'subCategories' => $subCategories,
             'search' => $search
         ]);
-    }
-
-    protected function postProcessAndAssignFluidVariables(array $variables = []): void
-    {
-        /** @var PostProcessFluidVariablesEvent $event */
-        $event = $this->eventDispatcher->dispatch(
-            new PostProcessFluidVariablesEvent(
-                $this->request,
-                $this->settings,
-                $variables
-            )
-        );
-
-        $this->view->assignMultiple($event->getFluidVariables());
     }
 }

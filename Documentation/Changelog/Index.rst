@@ -6,6 +6,15 @@
 ChangeLog
 =========
 
+**Version 4.0.1**
+
+- Keep form data while using PageBrowser
+
+**Version 4.0.0**
+
+- Use TYPO3 Paginator API instead of paginate VH
+- Remove TYPO3 9 compatibility
+
 **Version 3.1.1**
 
 - Add TS settings to GlossaryService
