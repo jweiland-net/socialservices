@@ -7,6 +7,11 @@ services:
   JWeiland\Socialservices\:
     resource: '../Classes/*'
 
+  JWeiland\Socialservices\EventListener\AllowSearchParameterEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\Socialservices\Event\PreProcessControllerActionEvent
+
   JWeiland\Socialservices\EventListener\AddPaginatorEventListener:
     tags:
     - name: event.listener
