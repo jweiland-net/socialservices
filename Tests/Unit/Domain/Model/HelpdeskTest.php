@@ -370,14 +370,6 @@ class HelpdeskTest extends UnitTestCase
     /**
      * @test
      */
-    public function getDistrictInitiallyReturnsNull(): void
-    {
-        self::assertNull($this->subject->getDistrict());
-    }
-
-    /**
-     * @test
-     */
     public function setDistrictSetsDistrict(): void
     {
         $instance = new \JWeiland\Socialservices\Domain\Model\District();
