@@ -47,8 +47,6 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
     /**
      * Return the identifier for this wizard
      * This should be the same string as used in the ext_localconf class registration
-     *
-     * @return string
      */
     public function getIdentifier(): string
     {
@@ -127,10 +125,10 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
                         $this->fieldName => $this->pathSegmentHelper->generatePathSegment(
                             $recordToUpdate,
                             (int)$recordToUpdate['pid']
-                        )
+                        ),
                     ],
                     [
-                        'uid' => (int)$recordToUpdate['uid']
+                        'uid' => (int)$recordToUpdate['uid'],
                     ]
                 );
             }
@@ -145,7 +143,7 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class
+            DatabaseUpdatedPrerequisite::class,
         ];
     }
 

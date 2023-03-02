@@ -11,11 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Helper;
 
-use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use TYPO3\CMS\Core\DataHandling\SlugHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 
 /*
  * Helper class to generate a path segment (slug) for a company record.
@@ -26,28 +23,6 @@ class PathSegmentHelper
     public function generatePathSegment(array $baseRecord, int $pid): string
     {
         return $this->getSlugHelper()->generate($baseRecord, $pid);
-    }
-
-    /**
-     * SF: Currently not used.
-     *
-     * @param Helpdesk $helpdesk
-     */
-    public function updatePathSegmentForHelpdesk(Helpdesk $helpdesk): void
-    {
-        // First, we have to check, if an UID is available
-        if (!$helpdesk->getUid()) {
-            $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-            $persistenceManager = $objectManager->get(PersistenceManagerInterface::class);
-            $persistenceManager->persistAll();
-        }
-
-        $helpdesk->setPathSegment(
-            $this->generatePathSegment(
-                $helpdesk->getBaseRecordForPathSegment(),
-                $helpdesk->getPid()
-            )
-        );
     }
 
     protected function getSlugHelper(): SlugHelper

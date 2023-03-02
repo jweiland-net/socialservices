@@ -3,13 +3,13 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-// add categories field to helpdesk table
+// Add categories field to helpdesk table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
     'socialservices',
     'tx_socialservices_domain_model_helpdesk',
     'categories',
     [
-        'exclude' => 1
+        'exclude' => 1,
     ]
 );
 
@@ -23,14 +23,14 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('maps2')) {
             'defaultCountry' => 'Deutschland',
             'defaultStoragePid' => [
                 'extKey' => 'socialservices',
-                'property' => 'poiCollectionPid'
+                'property' => 'poiCollectionPid',
             ],
             'synchronizeColumns' => [
                 [
                     'foreignColumnName' => 'title',
-                    'poiCollectionColumnName' => 'title'
-                ]
-            ]
+                    'poiCollectionColumnName' => 'title',
+                ],
+            ],
         ]
     );
 }

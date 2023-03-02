@@ -15,23 +15,23 @@ use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Domain model district which is a relation of helpdesk model
+ * This model represents a category (for anything).
  */
-class District extends AbstractEntity
+class Category extends AbstractEntity
 {
     /**
      * @var string
      * @Extbase\Validate("NotEmpty")
      */
-    protected $district = '';
+    protected $title = '';
 
-    public function getDistrict(): string
+    public function getTitle(): string
     {
-        return $this->district;
+        return $this->title;
     }
 
-    public function setDistrict(string $district): void
+    public function setTitle(string $title): void
     {
-        $this->district = $district;
+        $this->title = $title;
     }
 }

@@ -1,4 +1,5 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
+
 
 .. _extensionSettings:
 
@@ -12,7 +13,7 @@ Tab: Basic
 ==========
 
 poiCollectionPid
-""""""""""""""""
+----------------
 
 Default: 0
 
@@ -22,7 +23,7 @@ While creating location records we catch the address and automatically create a 
 for you. Define a storage PID where we should store these records.
 
 rootUid
-"""""""
+-------
 
 Default: 0
 

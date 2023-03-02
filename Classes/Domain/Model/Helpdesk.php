@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -22,7 +23,7 @@ class Helpdesk extends AbstractEntity
 {
     /**
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     * @Extbase\Validate("NotEmpty")
      */
     protected $title = '';
 
@@ -97,7 +98,9 @@ class Helpdesk extends AbstractEntity
     protected $txMaps2Uid = 0;
 
     /**
-     * @var \JWeiland\Socialservices\Domain\Model\District
+     * @var District
+     *
+     * @Extbase\Validate("NotEmpty")
      */
     protected $district;
 
@@ -122,18 +125,21 @@ class Helpdesk extends AbstractEntity
     protected $tags = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+     * @var ObjectStorage<Category>
      */
     protected $categories;
 
     public function __construct()
     {
-        $this->initStorageObjects();
+        $this->categories = new ObjectStorage();
     }
 
-    protected function initStorageObjects(): void
+    /**
+     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
+     */
+    public function initializeObject(): void
     {
-        $this->categories = new ObjectStorage();
+        $this->categories = $this->categories ?? new ObjectStorage();
     }
 
     public function getTitle(): string
@@ -291,12 +297,12 @@ class Helpdesk extends AbstractEntity
         $this->txMaps2Uid = $txMaps2Uid;
     }
 
-    public function getDistrict()
+    public function getDistrict(): District
     {
         return $this->district;
     }
 
-    public function setDistrict(District $district = null): void
+    public function setDistrict(District $district): void
     {
         $this->district = $district;
     }
@@ -372,7 +378,7 @@ class Helpdesk extends AbstractEntity
         return [
             'uid' => $this->getUid(),
             'pid' => $this->getPid(),
-            'title' => $this->getTitle()
+            'title' => $this->getTitle(),
         ];
     }
 }

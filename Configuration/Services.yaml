@@ -6,6 +6,7 @@ services:
 
   JWeiland\Socialservices\:
     resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
 
   JWeiland\Socialservices\EventListener\AllowSearchParameterEventListener:
     tags:

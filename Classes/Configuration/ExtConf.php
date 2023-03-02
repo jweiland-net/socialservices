@@ -11,9 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Configuration;
 
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\SingletonInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This class will streamline the values from extension manager configuration
@@ -25,18 +26,20 @@ class ExtConf implements SingletonInterface
      */
     protected $rootCategory = 0;
 
-    public function __construct()
+    public function __construct(ExtensionConfiguration $extensionConfiguration)
     {
-        // get global configuration
-        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('socialservices');
-        if (is_array($extConf) && count($extConf)) {
-            // call setter method foreach configuration entry
-            foreach ($extConf as $key => $value) {
-                $methodName = 'set' . ucfirst($key);
-                if (method_exists($this, $methodName)) {
-                    $this->$methodName((string)$value);
+        try {
+            $extConf = $extensionConfiguration->get('socialservices');
+            if (is_array($extConf) && count($extConf)) {
+                // call setter method foreach configuration entry
+                foreach ($extConf as $key => $value) {
+                    $methodName = 'set' . ucfirst($key);
+                    if (method_exists($this, $methodName)) {
+                        $this->$methodName((string)$value);
+                    }
                 }
             }
+        } catch (ExtensionConfigurationExtensionNotConfiguredException | ExtensionConfigurationPathDoesNotExistException $e) {
         }
     }
 
