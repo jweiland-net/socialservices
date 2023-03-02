@@ -7,6 +7,13 @@
 ChangeLog
 =========
 
+Version 5.0.0
+=============
+
+*   Add TYPO3 11 compatibility
+*   Repair item for newContentElementWizard
+*   Implement our own Category model and CategoryRepository
+
 Version 4.0.1
 =============
 

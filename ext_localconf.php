@@ -18,7 +18,7 @@ call_user_func(static function () {
 
     // Register SVG Icon Identifier
     $svgIcons = [
-        'ext-socialservices-socialservices-wizard-icon' => 'plugin_wizard.svg',
+        'ext-socialservices-wizard-icon' => 'Extension.svg',
     ];
     $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
         \TYPO3\CMS\Core\Imaging\IconRegistry::class
