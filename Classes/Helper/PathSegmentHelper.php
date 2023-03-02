@@ -11,11 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Helper;
 
-use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use TYPO3\CMS\Core\DataHandling\SlugHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 
 /*
  * Helper class to generate a path segment (slug) for a company record.

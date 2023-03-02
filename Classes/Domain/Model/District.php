@@ -14,7 +14,6 @@ namespace JWeiland\Socialservices\Domain\Model;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-
 /**
  * Domain model district which is a relation of helpdesk model
  */

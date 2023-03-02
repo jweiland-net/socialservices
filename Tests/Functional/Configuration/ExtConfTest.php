@@ -13,6 +13,8 @@ namespace JWeiland\Socialservices\Tests\Functional\Configuration;
 
 use JWeiland\Socialservices\Configuration\ExtConf;
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Test case.
@@ -28,15 +30,17 @@ class ExtConfTest extends FunctionalTestCase
      * @var array
      */
     protected $testExtensionsToLoad = [
+        'typo3conf/ext/glossary2',
         'typo3conf/ext/socialservices',
-        'typo3conf/ext/glossary2'
     ];
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
-        $this->subject = new ExtConf();
+        $this->subject = new ExtConf(
+            GeneralUtility::makeInstance(ExtensionConfiguration::class)
+        );
     }
 
     public function tearDown(): void
@@ -44,6 +48,8 @@ class ExtConfTest extends FunctionalTestCase
         unset(
             $this->subject
         );
+
+        parent::tearDown();
     }
 
     /**
