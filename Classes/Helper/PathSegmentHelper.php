@@ -28,28 +28,6 @@ class PathSegmentHelper
         return $this->getSlugHelper()->generate($baseRecord, $pid);
     }
 
-    /**
-     * SF: Currently not used.
-     *
-     * @param Helpdesk $helpdesk
-     */
-    public function updatePathSegmentForHelpdesk(Helpdesk $helpdesk): void
-    {
-        // First, we have to check, if an UID is available
-        if (!$helpdesk->getUid()) {
-            $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-            $persistenceManager = $objectManager->get(PersistenceManagerInterface::class);
-            $persistenceManager->persistAll();
-        }
-
-        $helpdesk->setPathSegment(
-            $this->generatePathSegment(
-                $helpdesk->getBaseRecordForPathSegment(),
-                $helpdesk->getPid()
-            )
-        );
-    }
-
     protected function getSlugHelper(): SlugHelper
     {
         // Add uid to slug, to prevent duplicates

@@ -23,7 +23,7 @@ class AllowSearchParameterEventListener extends AbstractControllerEventListener
 {
     protected $allowedControllerActions = [
         'Helpdesk' => [
-            'search'
+            'search',
         ],
     ];
 

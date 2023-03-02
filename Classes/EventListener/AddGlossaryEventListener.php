@@ -30,8 +30,8 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
 
     protected $allowedControllerActions = [
         'Helpdesk' => [
-            'list'
-        ]
+            'list',
+        ],
     ];
 
     public function __construct(GlossaryService $glossaryService, HelpdeskRepository $helpdeskRepository)
@@ -60,7 +60,7 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
             'pluginName' => 'socialservices',
             'controllerName' => 'Helpdesk',
             'column' => 'title',
-            'settings' => $event->getSettings()
+            'settings' => $event->getSettings(),
         ];
 
         if (

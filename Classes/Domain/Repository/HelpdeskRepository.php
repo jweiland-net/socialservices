@@ -33,14 +33,11 @@ class HelpdeskRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING
+        'title' => QueryInterface::ORDER_ASCENDING,
     ];
 
     /**
      * Find all records starting with given letter
-     *
-     * @param string $letter
-     * @return QueryResultInterface
      */
     public function findByLetter(string $letter): QueryResultInterface
     {
@@ -63,12 +60,6 @@ class HelpdeskRepository extends Repository
         return $query->statement($queryBuilder)->execute();
     }
 
-    /**
-     * Search records
-     *
-     * @param Search $search
-     * @return QueryResultInterface
-     */
     public function searchHelpdesks(Search $search): QueryResultInterface
     {
         $query = $this->createQuery();
@@ -77,22 +68,19 @@ class HelpdeskRepository extends Repository
         // if a searchWord is set, do not process other filtering methods
         if ($search->getSearchWord()) {
             $constraints[] = $this->getConstraintForSearchWord($query, $search->getSearchWord());
-        } else {
-            // add (Sub-)Category
-            if ($search->getSubCategory()) {
-                $constraints[] = $query->contains('categories', $search->getSubCategory());
-            } elseif ($search->getCategory()) {
-                $constraints[] = $query->contains('categories', $search->getCategory());
-            }
+        } elseif ($search->getSubCategory()) {
+            $constraints[] = $query->contains('categories', $search->getSubCategory());
+        } elseif ($search->getCategory()) {
+            $constraints[] = $query->contains('categories', $search->getCategory());
         }
 
-        // set ordering
+        // Set ordering
         if (in_array($search->getOrderBy(), ['title', 'sortTitle'], true)) {
             if (!in_array($search->getDirection(), [QueryInterface::ORDER_ASCENDING, QueryInterface::ORDER_DESCENDING], true)) {
                 $search->setDirection(QueryInterface::ORDER_ASCENDING);
             }
             $query->setOrderings([
-                $search->getOrderBy() => $search->getDirection()
+                $search->getOrderBy() => $search->getDirection(),
             ]);
         }
 
@@ -105,10 +93,6 @@ class HelpdeskRepository extends Repository
 
     /**
      * Get constraint to search helpdesks by searchWord
-     *
-     * @param QueryInterface $query
-     * @param string $searchWord
-     * @return ConstraintInterface
      */
     protected function getConstraintForSearchWord(QueryInterface $query, string $searchWord): ConstraintInterface
     {
@@ -136,7 +120,7 @@ class HelpdeskRepository extends Repository
             $query->like('city', '%' . $searchWord . '%'),
             $query->like('contactPerson', '%' . $searchWord . '%'),
             $query->like('description', '%' . $searchWord . '%'),
-            $query->like('tags', '%' . $searchWord . '%')
+            $query->like('tags', '%' . $searchWord . '%'),
         ];
 
         return $query->logicalOr($logicalOrConstraints);
@@ -146,6 +130,7 @@ class HelpdeskRepository extends Repository
     {
         $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_socialservices_domain_model_helpdesk');
         $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
+
         return $queryBuilder
             ->select('*')
             ->from('tx_socialservices_domain_model_helpdesk', 'h')
