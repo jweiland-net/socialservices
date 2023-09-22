@@ -4,7 +4,7 @@
 	"description": "Frontend extension to display social services",
 	"license": "GPL-2.0-or-later",
 	"keywords": ["typo3", "TYPO3 CMS", "socialservices"],
-	"homepage": "https://www.jweiland.net",
+	"homepage": "https://jweiland.net",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
@@ -28,6 +28,9 @@
 		"nimut/testing-framework": "^6.0",
 		"phpunit/phpunit": "^9.5",
 		"phpspec/prophecy-phpunit": "^2.0"
+	},
+	"replace": {
+		"typo3-ter/socialservices": "self.version"
 	},
 	"autoload": {
 		"psr-4": {
