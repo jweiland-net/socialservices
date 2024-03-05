@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-03-28T08:36:00Z" product-name="socialservices" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="poiCollectionPid" xml:space="preserve">
+				<source>PID for poiCollections: Define a storage pid where to store records of type Point of Interest.</source>
+			<target state="needs-translation">PID for poiCollections: Define a storage pid where to store records of type Point of Interest.</target></trans-unit>
+      <trans-unit id="rootCategory" xml:space="preserve">
+				<source>UID of root Category: In each helpdesk record you have the possibility to add one or more categories. In huge installations it's better to define a root category UID here to NOT show all categories.</source>
+			<target state="needs-translation">UID of root Category: In each helpdesk record you have the possibility to add one or more categories. In huge installations it's better to define a root category UID here to NOT show all categories.</target></trans-unit>
+    </body>
+  </file>
+</xliff>
