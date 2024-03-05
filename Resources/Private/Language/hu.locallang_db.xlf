@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices" target-language="hu">
+    <header/>
+    <body>
+      <trans-unit id="plugin.title">
+        <source>Social Services</source>
+        <target state="needs-translation">Social Services</target>
+      </trans-unit>
+      <trans-unit id="plugin.socialservices.title">
+        <source>Social Services</source>
+        <target state="needs-translation">Social Services</target>
+      </trans-unit>
+      <trans-unit id="plugin.socialservices.description">
+        <source>Inserts a list of social services. Above the social service listing you can use the a-z navigation to reduce the social services to its starting letter.</source>
+        <target state="needs-translation">Inserts a list of social services. Above the social service listing you can use the a-z navigation to reduce the social services to its starting letter.</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk">
+        <source>Helpdesk</source>
+        <target state="needs-translation">Helpdesk</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.path_segment">
+        <source>Segment for URL</source>
+        <target state="needs-translation">Segment for URL</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.category">
+        <source>Category</source>
+        <target state="needs-translation">Category</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.street">
+        <source>Street</source>
+        <target state="needs-translation">Street</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber">
+        <source>House number</source>
+        <target state="needs-translation">House number</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.zip">
+        <source>Zip</source>
+        <target state="needs-translation">Zip</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.city">
+        <source>City</source>
+        <target state="needs-translation">City</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.telephone">
+        <source>Telephone</source>
+        <target state="needs-translation">Telephone</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.fax">
+        <source>Fax</source>
+        <target state="needs-translation">Fax</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson">
+        <source>Contact Person</source>
+        <target state="needs-translation">Contact Person</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes">
+        <source>Contact Times</source>
+        <target state="needs-translation">Contact Times</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.website">
+        <source>Website</source>
+        <target state="needs-translation">Website</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree">
+        <source>Barrier Free</source>
+        <target state="needs-translation">Barrier Free</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.description">
+        <source>Description</source>
+        <target state="needs-translation">Description</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.facebook">
+        <source>Facebook</source>
+        <target state="needs-translation">Facebook</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.twitter">
+        <source>Twitter</source>
+        <target state="needs-translation">Twitter</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
+        <source>Instagram</source>
+        <target state="needs-translation">Instagram</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
+        <source>Tags</source>
+        <target state="needs-translation">Tags</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.district">
+        <source>District</source>
+        <target state="needs-translation">District</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
+        <source>Connect this record to a google maps record</source>
+        <target state="needs-translation">Connect this record to a google maps record</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district">
+        <source>District (social)</source>
+        <target state="needs-translation">District (social)</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district.district">
+        <source>District</source>
+        <target state="needs-translation">District</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
