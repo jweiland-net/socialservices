@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices" target-language="he">
+    <header/>
+    <body>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk">
+        <source>Helpdesk</source>
+        <target state="needs-translation">Helpdesk</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.category">
+        <source>Category</source>
+        <target state="needs-translation">Category</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.street">
+        <source>Street</source>
+        <target state="needs-translation">Street</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber">
+        <source>House number</source>
+        <target state="needs-translation">House number</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.zip">
+        <source>Zip</source>
+        <target state="needs-translation">Zip</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.city">
+        <source>City</source>
+        <target state="needs-translation">City</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.telephone">
+        <source>Telephone</source>
+        <target state="needs-translation">Telephone</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.fax">
+        <source>Fax</source>
+        <target state="needs-translation">Fax</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson">
+        <source>Contact person</source>
+        <target state="needs-translation">Contact person</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes">
+        <source>Contact times</source>
+        <target state="needs-translation">Contact times</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.website">
+        <source>Website</source>
+        <target state="needs-translation">Website</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree">
+        <source>Barrier-free</source>
+        <target state="needs-translation">Barrier-free</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.description">
+        <source>Description</source>
+        <target state="needs-translation">Description</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.facebook">
+        <source>Facebook</source>
+        <target state="needs-translation">Facebook</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.twitter">
+        <source>Twitter</source>
+        <target state="needs-translation">Twitter</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
+        <source>Instagram</source>
+        <target state="needs-translation">Instagram</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
+        <source>Tags</source>
+        <target state="needs-translation">Tags</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.district">
+        <source>District</source>
+        <target state="needs-translation">District</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
+        <source>Map</source>
+        <target state="needs-translation">Map</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district">
+        <source>District (social)</source>
+        <target state="needs-translation">District (social)</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district.district">
+        <source>District</source>
+        <target state="needs-translation">District</target>
+      </trans-unit>
+      <trans-unit id="search">
+        <source>Search</source>
+        <target state="needs-translation">Search</target>
+      </trans-unit>
+      <trans-unit id="noResults">
+        <source>No results found</source>
+        <target state="needs-translation">No results found</target>
+      </trans-unit>
+      <trans-unit id="filterBy">
+        <source>Filter by</source>
+        <target state="needs-translation">Filter by</target>
+      </trans-unit>
+      <trans-unit id="ascending">
+        <source>Ascending</source>
+        <target state="needs-translation">Ascending</target>
+      </trans-unit>
+      <trans-unit id="descending">
+        <source>Descending</source>
+        <target state="needs-translation">Descending</target>
+      </trans-unit>
+      <trans-unit id="yes">
+        <source>yes</source>
+        <target state="needs-translation">yes</target>
+      </trans-unit>
+      <trans-unit id="no">
+        <source>no</source>
+        <target state="needs-translation">no</target>
+      </trans-unit>
+      <trans-unit id="altTextMapImg">
+        <source>Map</source>
+        <target state="needs-translation">Map</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first">
+        <source>First</source>
+        <target state="needs-translation">First</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous">
+        <source>Previous</source>
+        <target state="needs-translation">Previous</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next">
+        <source>Next</source>
+        <target state="needs-translation">Next</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last">
+        <source>Last</source>
+        <target state="needs-translation">Last</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
