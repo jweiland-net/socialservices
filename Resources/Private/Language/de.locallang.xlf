@@ -3,145 +3,145 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk" approved="yes">
         <source>Helpdesk</source>
-        <target state="needs-translation">Helpdesk</target>
+        <target state="final">Sozialberatungsstellen</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.title">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.category">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.category" approved="yes">
         <source>Category</source>
-        <target state="needs-translation">Category</target>
+        <target state="final">Kategorie</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.street">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.street" approved="yes">
         <source>Street</source>
-        <target state="needs-translation">Street</target>
+        <target state="final">Straße</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber" approved="yes">
         <source>House number</source>
-        <target state="needs-translation">House number</target>
+        <target state="final">Hausnummer</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.zip">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.zip" approved="yes">
         <source>Zip</source>
-        <target state="needs-translation">Zip</target>
+        <target state="final">PLZ</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.city">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.city" approved="yes">
         <source>City</source>
-        <target state="needs-translation">City</target>
+        <target state="final">Ort</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.telephone">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.telephone" approved="yes">
         <source>Telephone</source>
-        <target state="needs-translation">Telephone</target>
+        <target state="final">Telefon</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.fax">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.fax" approved="yes">
         <source>Fax</source>
-        <target state="needs-translation">Fax</target>
+        <target state="final">Fax</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson" approved="yes">
         <source>Contact person</source>
-        <target state="needs-translation">Contact person</target>
+        <target state="final">Ansprechpartner</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes" approved="yes">
         <source>Contact times</source>
-        <target state="needs-translation">Contact times</target>
+        <target state="final">Öffnungszeiten</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.email">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.email" approved="yes">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="final">E-Mail</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.website">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.website" approved="yes">
         <source>Website</source>
-        <target state="needs-translation">Website</target>
+        <target state="final">Webseite</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree" approved="yes">
         <source>Barrier-free</source>
-        <target state="needs-translation">Barrier-free</target>
+        <target state="final">Barrierefrei (Rollstuhl, Rollator)</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.description">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.description" approved="yes">
         <source>Description</source>
-        <target state="needs-translation">Description</target>
+        <target state="final">Beschreibung</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.facebook">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.facebook" approved="yes">
         <source>Facebook</source>
-        <target state="needs-translation">Facebook</target>
+        <target state="final">Facebook</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.twitter">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.twitter" approved="yes">
         <source>Twitter</source>
-        <target state="needs-translation">Twitter</target>
+        <target state="final">Twitter</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.instagram" approved="yes">
         <source>Instagram</source>
-        <target state="needs-translation">Instagram</target>
+        <target state="final">Instagram</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.tags" approved="yes">
         <source>Tags</source>
-        <target state="needs-translation">Tags</target>
+        <target state="final">zusätzliche Suchbegriffe</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.district">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.district" approved="yes">
         <source>District</source>
-        <target state="needs-translation">District</target>
+        <target state="final">Stadtteil</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid" approved="yes">
         <source>Map</source>
-        <target state="needs-translation">Map</target>
+        <target state="final">Karte</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_district">
+      <trans-unit id="tx_socialservices_domain_model_district" approved="yes">
         <source>District (social)</source>
-        <target state="needs-translation">District (social)</target>
+        <target state="final">Stadtteil (Sozial)</target>
       </trans-unit>
-      <trans-unit id="tx_socialservices_domain_model_district.district">
+      <trans-unit id="tx_socialservices_domain_model_district.district" approved="yes">
         <source>District</source>
-        <target state="needs-translation">District</target>
+        <target state="final">Stadtteil</target>
       </trans-unit>
-      <trans-unit id="search">
+      <trans-unit id="search" approved="yes">
         <source>Search</source>
-        <target state="needs-translation">Search</target>
+        <target state="final">Suchen</target>
       </trans-unit>
-      <trans-unit id="noResults">
+      <trans-unit id="noResults" approved="yes">
         <source>No results found</source>
-        <target state="needs-translation">No results found</target>
+        <target state="final">Keine Einträge gefunden</target>
       </trans-unit>
-      <trans-unit id="filterBy">
+      <trans-unit id="filterBy" approved="yes">
         <source>Filter by</source>
-        <target state="needs-translation">Filter by</target>
+        <target state="final">Filtern</target>
       </trans-unit>
-      <trans-unit id="ascending">
+      <trans-unit id="ascending" approved="yes">
         <source>Ascending</source>
-        <target state="needs-translation">Ascending</target>
+        <target state="final">Aufsteigend</target>
       </trans-unit>
-      <trans-unit id="descending">
+      <trans-unit id="descending" approved="yes">
         <source>Descending</source>
-        <target state="needs-translation">Descending</target>
+        <target state="final">Absteigend</target>
       </trans-unit>
-      <trans-unit id="yes">
+      <trans-unit id="yes" approved="yes">
         <source>yes</source>
-        <target state="needs-translation">yes</target>
+        <target state="final">ja</target>
       </trans-unit>
-      <trans-unit id="no">
+      <trans-unit id="no" approved="yes">
         <source>no</source>
-        <target state="needs-translation">no</target>
+        <target state="final">nein</target>
       </trans-unit>
-      <trans-unit id="altTextMapImg">
+      <trans-unit id="altTextMapImg" approved="yes">
         <source>Map</source>
-        <target state="needs-translation">Map</target>
+        <target state="final">Karte</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.first">
+      <trans-unit id="pageBrowser.first" approved="yes">
         <source>First</source>
-        <target state="needs-translation">First</target>
+        <target state="final">Erste</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.previous">
+      <trans-unit id="pageBrowser.previous" approved="yes">
         <source>Previous</source>
-        <target state="needs-translation">Previous</target>
+        <target state="final">Vorherige</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.next">
+      <trans-unit id="pageBrowser.next" approved="yes">
         <source>Next</source>
-        <target state="needs-translation">Next</target>
+        <target state="final">Nächste</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.last">
+      <trans-unit id="pageBrowser.last" approved="yes">
         <source>Last</source>
-        <target state="needs-translation">Last</target>
+        <target state="final">Letzte</target>
       </trans-unit>
     </body>
   </file>
