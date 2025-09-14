@@ -21,8 +21,8 @@ class Category extends AbstractEntity
 {
     /**
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $title = '';
 
     public function getTitle(): string

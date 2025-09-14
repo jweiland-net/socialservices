@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\Socialservices\Domain\Model\District;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case.

@@ -21,8 +21,8 @@ class District extends AbstractEntity
 {
     /**
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $district = '';
 
     public function getDistrict(): string

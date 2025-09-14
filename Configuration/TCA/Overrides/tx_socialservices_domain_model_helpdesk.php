@@ -1,10 +1,12 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use JWeiland\Maps2\Tca\Maps2Registry;
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 // Add categories field to helpdesk table
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
+ExtensionManagementUtility::makeCategorizable(
     'socialservices',
     'tx_socialservices_domain_model_helpdesk',
     'categories',
@@ -14,8 +16,8 @@ if (!defined('TYPO3_MODE')) {
 );
 
 // Add tx_maps2_uid column to helpdesk table
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('maps2')) {
-    \JWeiland\Maps2\Tca\Maps2Registry::getInstance()->add(
+if (ExtensionManagementUtility::isLoaded('maps2')) {
+    Maps2Registry::getInstance()->add(
         'socialservices',
         'tx_socialservices_domain_model_helpdesk',
         [

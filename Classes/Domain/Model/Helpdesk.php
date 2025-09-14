@@ -23,8 +23,8 @@ class Helpdesk extends AbstractEntity
 {
     /**
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $title = '';
 
     /**
@@ -99,9 +99,8 @@ class Helpdesk extends AbstractEntity
 
     /**
      * @var District
-     *
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $district;
 
     /**

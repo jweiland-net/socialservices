@@ -11,8 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
+use JWeiland\Socialservices\Domain\Model\District;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case.
@@ -372,7 +375,7 @@ class HelpdeskTest extends UnitTestCase
      */
     public function setDistrictSetsDistrict(): void
     {
-        $instance = new \JWeiland\Socialservices\Domain\Model\District();
+        $instance = new District();
         $this->subject->setDistrict($instance);
 
         self::assertSame(
@@ -483,7 +486,7 @@ class HelpdeskTest extends UnitTestCase
     public function getCategoriesInitiallyReturnsObjectStorage(): void
     {
         self::assertEquals(
-            new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
+            new ObjectStorage(),
             $this->subject->getCategories()
         );
     }
@@ -493,8 +496,8 @@ class HelpdeskTest extends UnitTestCase
      */
     public function setCategoriesSetsCategories(): void
     {
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $object = new Category();
+        $objectStorage = new ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
 
@@ -509,10 +512,10 @@ class HelpdeskTest extends UnitTestCase
      */
     public function addCategoryAddsOneCategory(): void
     {
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $objectStorage = new ObjectStorage();
         $this->subject->setCategories($objectStorage);
 
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+        $object = new Category();
         $this->subject->addCategory($object);
 
         $objectStorage->attach($object);
@@ -528,8 +531,8 @@ class HelpdeskTest extends UnitTestCase
      */
     public function removeCategoryRemovesOneCategory(): void
     {
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $object = new Category();
+        $objectStorage = new ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
 
