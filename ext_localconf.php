@@ -27,11 +27,7 @@ call_user_func(static function () {
         [
             HelpdeskController::class => 'search',
         ],
-    );
-
-    // Add socialservices plugin to new element wizard
-    ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:socialservices/Configuration/TSconfig/ContentElementWizard.tsconfig">',
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['socialservicesUpdateSlug']

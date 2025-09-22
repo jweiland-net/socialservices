@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Socialservices\Tests\Functional\Configuration;
 
 use JWeiland\Socialservices\Configuration\ExtConf;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
@@ -21,26 +22,19 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class ExtConfTest extends FunctionalTestCase
 {
-    /**
-     * @var ExtConf
-     */
-    protected $subject;
+    protected ExtConf $subject;
 
-    /**
-     * @var array
-     */
-    protected $testExtensionsToLoad = [
-        'typo3conf/ext/glossary2',
-        'typo3conf/ext/socialservices',
+    protected array $testExtensionsToLoad = [
+        'jweiland/glossary2',
+        'jweiland/socialservices',
+        'jweiland/maps2',
     ];
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->subject = new ExtConf(
-            GeneralUtility::makeInstance(ExtensionConfiguration::class),
-        );
+        $this->subject = new ExtConf(123);
     }
 
     public function tearDown(): void
@@ -52,23 +46,19 @@ class ExtConfTest extends FunctionalTestCase
         parent::tearDown();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getRootCategoryInitiallyReturnsZero(): void
     {
         self::assertSame(
-            0,
+            123,
             $this->subject->getRootCategory(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setRootCategoryWithStringResultsInInteger(): void
     {
-        $this->subject->setRootCategory('123Test');
+        $this->subject = new ExtConf(123);
 
         self::assertSame(
             123,

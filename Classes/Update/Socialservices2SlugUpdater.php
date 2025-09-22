@@ -9,35 +9,28 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Socialservices\Updater;
+namespace JWeiland\Socialservices\Update;
 
 use JWeiland\Socialservices\Helper\PathSegmentHelper;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * Updater to fill empty slug columns of helpdesk records
  */
+#[UpgradeWizard('socialservices_slugupdater')]
 class Socialservices2SlugUpdater implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'tx_socialservices_domain_model_helpdesk';
+    protected string $tableName = 'tx_socialservices_domain_model_helpdesk';
 
-    /**
-     * @var string
-     */
-    protected $fieldName = 'path_segment';
+    protected string $fieldName = 'path_segment';
 
-    /**
-     * @var PathSegmentHelper
-     */
-    protected $pathSegmentHelper;
+    protected mixed $pathSegmentHelper;
 
     public function __construct(PathSegmentHelper $pathSegmentHelper = null)
     {
@@ -77,7 +70,7 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
             ), $queryBuilder->expr()->isNull(
                 $this->fieldName,
             )))->executeQuery()
-            ->fetchColumn(0);
+            ->fetchOne();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
