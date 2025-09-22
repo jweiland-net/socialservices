@@ -52,8 +52,8 @@ class HelpdeskRepository extends Repository
                     $glossaryService->getLetterConstraintForDoctrineQuery(
                         $queryBuilder,
                         'h.title',
-                        $letter
-                    )
+                        $letter,
+                    ),
                 );
         }
 
@@ -139,9 +139,9 @@ class HelpdeskRepository extends Repository
                     'h.pid',
                     $queryBuilder->createNamedParameter(
                         $extbaseQuery->getQuerySettings()->getStoragePageIds(),
-                        Connection::PARAM_INT_ARRAY
-                    )
-                )
+                        Connection::PARAM_INT_ARRAY,
+                    ),
+                ),
             )
             ->orderBy('h.title', 'ASC');
     }

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/socialservices.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 if (!defined('TYPO3')) {
     die('Access denied.');
 }
@@ -19,12 +26,12 @@ call_user_func(static function () {
         // non-cacheable actions
         [
             HelpdeskController::class => 'search',
-        ]
+        ],
     );
 
     // Add socialservices plugin to new element wizard
     ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:socialservices/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:socialservices/Configuration/TSconfig/ContentElementWizard.tsconfig">',
     );
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['socialservicesUpdateSlug']

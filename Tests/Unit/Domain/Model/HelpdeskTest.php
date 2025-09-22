@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\Socialservices\Domain\Model\District;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Domain\Model\Category;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
@@ -44,7 +44,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -57,7 +57,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -68,7 +68,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getStreet()
+            $this->subject->getStreet(),
         );
     }
 
@@ -81,7 +81,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getStreet()
+            $this->subject->getStreet(),
         );
     }
 
@@ -92,7 +92,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getHouseNumber()
+            $this->subject->getHouseNumber(),
         );
     }
 
@@ -105,7 +105,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getHouseNumber()
+            $this->subject->getHouseNumber(),
         );
     }
 
@@ -116,7 +116,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getZip()
+            $this->subject->getZip(),
         );
     }
 
@@ -129,7 +129,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getZip()
+            $this->subject->getZip(),
         );
     }
 
@@ -140,7 +140,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getCity()
+            $this->subject->getCity(),
         );
     }
 
@@ -153,7 +153,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getCity()
+            $this->subject->getCity(),
         );
     }
 
@@ -164,7 +164,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
@@ -177,7 +177,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
@@ -188,7 +188,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getFax()
+            $this->subject->getFax(),
         );
     }
 
@@ -201,7 +201,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getFax()
+            $this->subject->getFax(),
         );
     }
 
@@ -212,7 +212,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
@@ -225,7 +225,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
@@ -236,7 +236,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getContactTimes()
+            $this->subject->getContactTimes(),
         );
     }
 
@@ -249,7 +249,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getContactTimes()
+            $this->subject->getContactTimes(),
         );
     }
 
@@ -260,7 +260,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
@@ -273,7 +273,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
@@ -284,7 +284,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getWebsite()
+            $this->subject->getWebsite(),
         );
     }
 
@@ -297,7 +297,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getWebsite()
+            $this->subject->getWebsite(),
         );
     }
 
@@ -307,7 +307,7 @@ class HelpdeskTest extends UnitTestCase
     public function getBarrierFreeInitiallyReturnsFalse(): void
     {
         self::assertFalse(
-            $this->subject->getBarrierFree()
+            $this->subject->getBarrierFree(),
         );
     }
 
@@ -318,7 +318,7 @@ class HelpdeskTest extends UnitTestCase
     {
         $this->subject->setBarrierFree(true);
         self::assertTrue(
-            $this->subject->getBarrierFree()
+            $this->subject->getBarrierFree(),
         );
     }
 
@@ -329,7 +329,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
@@ -342,7 +342,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
@@ -353,7 +353,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getTxMaps2Uid()
+            $this->subject->getTxMaps2Uid(),
         );
     }
 
@@ -366,7 +366,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             123456,
-            $this->subject->getTxMaps2Uid()
+            $this->subject->getTxMaps2Uid(),
         );
     }
 
@@ -380,7 +380,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getDistrict()
+            $this->subject->getDistrict(),
         );
     }
 
@@ -391,7 +391,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getFacebook()
+            $this->subject->getFacebook(),
         );
     }
 
@@ -404,7 +404,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getFacebook()
+            $this->subject->getFacebook(),
         );
     }
 
@@ -415,7 +415,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTwitter()
+            $this->subject->getTwitter(),
         );
     }
 
@@ -428,7 +428,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTwitter()
+            $this->subject->getTwitter(),
         );
     }
 
@@ -439,7 +439,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getInstagram()
+            $this->subject->getInstagram(),
         );
     }
 
@@ -452,7 +452,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getInstagram()
+            $this->subject->getInstagram(),
         );
     }
 
@@ -463,7 +463,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTags()
+            $this->subject->getTags(),
         );
     }
 
@@ -476,7 +476,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTags()
+            $this->subject->getTags(),
         );
     }
 
@@ -487,7 +487,7 @@ class HelpdeskTest extends UnitTestCase
     {
         self::assertEquals(
             new ObjectStorage(),
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 
@@ -503,7 +503,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 
@@ -522,7 +522,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 
@@ -541,7 +541,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 }

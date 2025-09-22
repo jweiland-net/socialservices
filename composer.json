@@ -49,17 +49,20 @@
 		}
 	},
 	"config": {
-		"vendor-dir": "Build/vendor",
 		"allow-plugins": {
 			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
-		}
+			"typo3/cms-composer-installers": true,
+			"ergebnis/composer-normalize": true
+		},
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
 	},
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "socialservices",
-			"app-dir": "Build",
-			"web-dir": "Build/public"
+			"app-dir": ".Build",
+			"web-dir": ".Build/public"
 		}
 	}
 }

@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\Socialservices\Domain\Model\Search;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
@@ -42,7 +42,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getLetter()
+            $this->subject->getLetter(),
         );
     }
 
@@ -55,7 +55,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getLetter()
+            $this->subject->getLetter(),
         );
     }
 
@@ -66,7 +66,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getSearchWord()
+            $this->subject->getSearchWord(),
         );
     }
 
@@ -79,7 +79,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getSearchWord()
+            $this->subject->getSearchWord(),
         );
     }
 
@@ -90,7 +90,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getCategory()
+            $this->subject->getCategory(),
         );
     }
 
@@ -103,7 +103,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             123456,
-            $this->subject->getCategory()
+            $this->subject->getCategory(),
         );
     }
 
@@ -114,7 +114,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getSubCategory()
+            $this->subject->getSubCategory(),
         );
     }
 
@@ -127,7 +127,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             123456,
-            $this->subject->getSubCategory()
+            $this->subject->getSubCategory(),
         );
     }
 
@@ -138,7 +138,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             'title',
-            $this->subject->getOrderBy()
+            $this->subject->getOrderBy(),
         );
     }
 
@@ -151,7 +151,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getOrderBy()
+            $this->subject->getOrderBy(),
         );
     }
 
@@ -162,7 +162,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             QueryInterface::ORDER_ASCENDING,
-            $this->subject->getDirection()
+            $this->subject->getDirection(),
         );
     }
 
@@ -175,7 +175,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDirection()
+            $this->subject->getDirection(),
         );
     }
 }

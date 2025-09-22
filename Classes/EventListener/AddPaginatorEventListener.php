@@ -36,7 +36,7 @@ class AddPaginatorEventListener extends AbstractControllerEventListener
             $paginator = new QueryResultPaginator(
                 $event->getFluidVariables()['helpdesks'],
                 $this->getCurrentPage($event),
-                $this->getItemsPerPage($event)
+                $this->getItemsPerPage($event),
             );
 
             $event->addFluidVariable('actionName', $event->getActionName());
@@ -54,7 +54,7 @@ class AddPaginatorEventListener extends AbstractControllerEventListener
             // See: AbstractPaginator::setCurrentPageNumber()
             $currentPage = MathUtility::forceIntegerInRange(
                 (int)$event->getRequest()->getArgument('currentPage'),
-                1
+                1,
             );
         }
 

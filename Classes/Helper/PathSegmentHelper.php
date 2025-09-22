@@ -35,7 +35,7 @@ class PathSegmentHelper
             SlugHelper::class,
             'tx_socialservices_domain_model_helpdesk',
             'path_segment',
-            $config
+            $config,
         );
     }
 }

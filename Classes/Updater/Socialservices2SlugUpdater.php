@@ -72,11 +72,11 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
         $amountOfRecordsWithEmptySlug = $queryBuilder
             ->count('*')
             ->from($this->tableName)->where($queryBuilder->expr()->or($queryBuilder->expr()->eq(
-            $this->fieldName,
-            $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
-        ), $queryBuilder->expr()->isNull(
-            $this->fieldName
-        )))->executeQuery()
+                $this->fieldName,
+                $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
+            ), $queryBuilder->expr()->isNull(
+                $this->fieldName,
+            )))->executeQuery()
             ->fetchColumn(0);
 
         return (bool)$amountOfRecordsWithEmptySlug;
@@ -96,11 +96,11 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
         $statement = $queryBuilder
             ->select('uid', 'pid', 'title')
             ->from($this->tableName)->where($queryBuilder->expr()->or($queryBuilder->expr()->eq(
-            $this->fieldName,
-            $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
-        ), $queryBuilder->expr()->isNull(
-            $this->fieldName
-        )))->executeQuery();
+                $this->fieldName,
+                $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
+            ), $queryBuilder->expr()->isNull(
+                $this->fieldName,
+            )))->executeQuery();
 
         $connection = $this->getConnectionPool()->getConnectionForTable($this->tableName);
         while ($recordToUpdate = $statement->fetch()) {
@@ -110,12 +110,12 @@ class Socialservices2SlugUpdater implements UpgradeWizardInterface
                     [
                         $this->fieldName => $this->pathSegmentHelper->generatePathSegment(
                             $recordToUpdate,
-                            (int)$recordToUpdate['pid']
+                            (int)$recordToUpdate['pid'],
                         ),
                     ],
                     [
                         'uid' => (int)$recordToUpdate['uid'],
-                    ]
+                    ],
                 );
             }
         }

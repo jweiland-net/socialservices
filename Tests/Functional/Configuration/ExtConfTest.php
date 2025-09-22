@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Functional\Configuration;
 
-use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
  * Test case.
@@ -39,14 +39,14 @@ class ExtConfTest extends FunctionalTestCase
         parent::setUp();
 
         $this->subject = new ExtConf(
-            GeneralUtility::makeInstance(ExtensionConfiguration::class)
+            GeneralUtility::makeInstance(ExtensionConfiguration::class),
         );
     }
 
     public function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
 
         parent::tearDown();
@@ -59,7 +59,7 @@ class ExtConfTest extends FunctionalTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getRootCategory()
+            $this->subject->getRootCategory(),
         );
     }
 
@@ -72,7 +72,7 @@ class ExtConfTest extends FunctionalTestCase
 
         self::assertSame(
             123,
-            $this->subject->getRootCategory()
+            $this->subject->getRootCategory(),
         );
     }
 }

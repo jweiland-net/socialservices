@@ -11,16 +11,15 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Controller;
 
-use TYPO3\CMS\Extbase\Annotation\Validate;
-use Psr\Http\Message\ResponseInterface;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
 use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Socialservices\Event\PreProcessControllerActionEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -28,35 +27,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class HelpdeskController extends ActionController
 {
-    /**
-     * @var HelpdeskRepository
-     */
-    protected $helpdeskRepository;
-
-    /**
-     * @var CategoryRepository
-     */
-    protected $categoryRepository;
-
-    /**
-     * @var ExtConf
-     */
-    protected $extConf;
-
-    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository): void
-    {
-        $this->helpdeskRepository = $helpdeskRepository;
-    }
-
-    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
-    public function injectExtConf(ExtConf $extConf): void
-    {
-        $this->extConf = $extConf;
-    }
+    public function __construct(
+        protected readonly HelpdeskRepository $helpdeskRepository,
+        protected readonly ExtConf $extConf,
+    ) {}
 
     public function initializeAction(): void
     {
@@ -131,8 +105,8 @@ class HelpdeskController extends ActionController
             new PostProcessFluidVariablesEvent(
                 $this->request,
                 $this->settings,
-                $variables
-            )
+                $variables,
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
@@ -144,8 +118,8 @@ class HelpdeskController extends ActionController
             new PreProcessControllerActionEvent(
                 $this->request,
                 $this->arguments,
-                $this->settings
-            )
+                $this->settings,
+            ),
         );
     }
 }

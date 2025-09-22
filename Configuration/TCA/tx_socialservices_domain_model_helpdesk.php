@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * This file is part of the package jweiland/socialservices.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:tx_socialservices_domain_model_helpdesk',
