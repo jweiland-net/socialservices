@@ -13,8 +13,6 @@ namespace JWeiland\Socialservices\Tests\Functional\Configuration;
 
 use JWeiland\Socialservices\Configuration\ExtConf;
 use PHPUnit\Framework\Attributes\Test;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
