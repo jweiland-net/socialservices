@@ -29,9 +29,7 @@ readonly class ExtConf implements SingletonInterface
         'rootCategory' => 0,
     ];
 
-    public function __construct(private int $rootCategory = self::DEFAULT_SETTINGS['rootCategory'])
-    {
-    }
+    public function __construct(private int $rootCategory = self::DEFAULT_SETTINGS['rootCategory']) {}
 
     public static function create(ExtensionConfiguration $extensionConfiguration): static
     {
