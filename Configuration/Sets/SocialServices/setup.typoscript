@@ -1,0 +1,24 @@
+plugin.tx_socialservices {
+  view {
+    templateRootPaths.10 = {$socialservices.templateRootPath}
+    partialRootPaths.10 = {$socialservices.partialRootPath}
+    layoutRootPaths.10 = {$socialservices.layoutRootPath}
+  }
+
+  persistence {
+    storagePid = {$socialservices.storagePid}
+  }
+
+  settings {
+    pidOfMaps2Plugin = {$socialservices.pidOfMaps2Plugin}
+    pidOfDetailPage = {$socialservices.pidOfDetailPage}
+    glossary {
+      mergeNumbers = 1
+      showAllLink = 1
+    }
+
+    pageBrowser {
+      itemsPerPage = {$socialservices.pageBrowser.itemsPerPage}
+    }
+  }
+}

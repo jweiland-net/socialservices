@@ -1,0 +1,70 @@
+categories:
+  socialservices:
+    label: 'socialservices'
+  socialservices.templates:
+    label: 'Templates'
+    parent: socialservices
+  socialservices.pages:
+    label: 'Pages'
+    parent: socialservices
+  socialservices.settings:
+    label: 'Settings'
+    parent: socialservices
+  socialservices.glossary2:
+    label: 'Glossary2 Settings'
+    parent: socialservices
+settings:
+  socialservices.templateRootPath:
+    label: 'Templates'
+    category: socialservices.templates
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:socialservices/Resources/Private/Templates/'
+  socialservices.partialRootPath:
+    label: 'Partials'
+    category: socialservices.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:socialservices/Resources/Private/Partials/'
+  socialservices.layoutRootPath:
+    label: 'Layouts'
+    category: socialservices.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:socialservices/Resources/Private/Layouts/'
+  socialservices.storagePid:
+    label: 'Default storage PID'
+    category: socialservices.settings
+    description: 'Folder that stores all POIs'
+    type: int
+    default: 0
+  socialservices.pidOfMaps2Plugin:
+    label: 'Pid of Maps Page'
+    category: 'socialservices.pages'
+    description: 'Page UID with events2 plugin to show list of events'
+    type: int
+    default: 0
+  socialservices.pidOfDetailPage:
+    label: 'Pid of Detail Page'
+    category: 'socialservices.pages'
+    description: 'Page UID with socialservices plugin to show list of records'
+    type: int
+    default: 0
+  socialservices.mergeNumbers:
+    label: 'Merge Numbers'
+    category: 'socialservices.glossary2'
+    description: 'Merge Numbers'
+    type: bool
+    default: true
+  socialservices.showAllLink:
+    label: 'Show All Links'
+    category: 'socialservices.glossary2'
+    description: ''
+    type: bool
+    default: true
+  socialservices.pageBrowser.itemsPerPage:
+    label: 'Items per page for pagination'
+    category: 'socialservices.settings'
+    description: 'Number of results that needs to be shown on listing page'
+    type: int
+    default: 15
