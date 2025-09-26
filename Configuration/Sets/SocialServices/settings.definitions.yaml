@@ -41,7 +41,7 @@ settings:
   socialservices.pidOfMaps2Plugin:
     label: 'Pid of Maps Page'
     category: 'socialservices.pages'
-    description: 'Page UID with events2 plugin to show list of events'
+    description: 'Page UID with Maps2 plugin records'
     type: int
     default: 0
   socialservices.pidOfDetailPage:
