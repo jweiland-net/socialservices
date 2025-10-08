@@ -1,21 +1,34 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+
+/*
+ * This file is part of the package jweiland/socialservices.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+use JWeiland\Maps2\Tca\Maps2Registry;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 // Add categories field to helpdesk table
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'socialservices',
+$GLOBALS['TCA']['tx_socialservices_domain_model_helpdesk']['columns']['categories'] = [
+    'config' => [
+        'type' => 'category',
+    ],
+];
+
+ExtensionManagementUtility::addToAllTCAtypes(
     'tx_socialservices_domain_model_helpdesk',
     'categories',
-    [
-        'exclude' => 1,
-    ]
 );
 
 // Add tx_maps2_uid column to helpdesk table
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('maps2')) {
-    \JWeiland\Maps2\Tca\Maps2Registry::getInstance()->add(
+if (ExtensionManagementUtility::isLoaded('maps2')) {
+    Maps2Registry::getInstance()->add(
         'socialservices',
         'tx_socialservices_domain_model_helpdesk',
         [
@@ -31,6 +44,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('maps2')) {
                     'poiCollectionColumnName' => 'title',
                 ],
             ],
-        ]
+        ],
     );
 }

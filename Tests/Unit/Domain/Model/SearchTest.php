@@ -12,18 +12,16 @@ declare(strict_types=1);
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
 use JWeiland\Socialservices\Domain\Model\Search;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
  */
 class SearchTest extends UnitTestCase
 {
-    /**
-     * @var Search
-     */
-    protected $subject;
+    protected Search $subject;
 
     public function setUp(): void
     {
@@ -35,147 +33,123 @@ class SearchTest extends UnitTestCase
         unset($this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLetterInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getLetter()
+            $this->subject->getLetter(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setLetterSetsLetter(): void
     {
         $this->subject->setLetter('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getLetter()
+            $this->subject->getLetter(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getSearchWordInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getSearchWord()
+            $this->subject->getSearchWord(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setSearchWordSetsSearchWord(): void
     {
         $this->subject->setSearchWord('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getSearchWord()
+            $this->subject->getSearchWord(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCategoryInitiallyReturnsZero(): void
     {
         self::assertSame(
             0,
-            $this->subject->getCategory()
+            $this->subject->getCategory(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCategorySetsCategory(): void
     {
         $this->subject->setCategory(123456);
 
         self::assertSame(
             123456,
-            $this->subject->getCategory()
+            $this->subject->getCategory(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getSubCategoryInitiallyReturnsZero(): void
     {
         self::assertSame(
             0,
-            $this->subject->getSubCategory()
+            $this->subject->getSubCategory(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setSubCategorySetsSubCategory(): void
     {
         $this->subject->setSubCategory(123456);
 
         self::assertSame(
             123456,
-            $this->subject->getSubCategory()
+            $this->subject->getSubCategory(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getOrderByInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             'title',
-            $this->subject->getOrderBy()
+            $this->subject->getOrderBy(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setOrderBySetsOrderBy(): void
     {
         $this->subject->setOrderBy('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getOrderBy()
+            $this->subject->getOrderBy(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDirectionInitiallyReturnsAscending(): void
     {
         self::assertSame(
             QueryInterface::ORDER_ASCENDING,
-            $this->subject->getDirection()
+            $this->subject->getDirection(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDirectionSetsDirection(): void
     {
         $this->subject->setDirection('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDirection()
+            $this->subject->getDirection(),
         );
     }
 }

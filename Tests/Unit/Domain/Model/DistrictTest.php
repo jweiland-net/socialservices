@@ -12,17 +12,15 @@ declare(strict_types=1);
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
 use JWeiland\Socialservices\Domain\Model\District;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\Attributes\Test;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
  */
 class DistrictTest extends UnitTestCase
 {
-    /**
-     * @var District
-     */
-    protected $subject;
+    protected District $subject;
 
     public function setUp(): void
     {
@@ -34,27 +32,23 @@ class DistrictTest extends UnitTestCase
         unset($this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDistrictInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getDistrict()
+            $this->subject->getDistrict(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDistrictSetsDistrict(): void
     {
         $this->subject->setDistrict('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDistrict()
+            $this->subject->getDistrict(),
         );
     }
 }

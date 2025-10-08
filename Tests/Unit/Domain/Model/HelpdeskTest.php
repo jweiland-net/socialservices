@@ -11,18 +11,19 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Tests\Unit\Domain\Model;
 
+use JWeiland\Socialservices\Domain\Model\District;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\Attributes\Test;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
  */
 class HelpdeskTest extends UnitTestCase
 {
-    /**
-     * @var Helpdesk
-     */
-    protected $subject;
+    protected Helpdesk $subject;
 
     public function setUp(): void
     {
@@ -34,502 +35,420 @@ class HelpdeskTest extends UnitTestCase
         unset($this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $this->subject->setTitle('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getStreetInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getStreet()
+            $this->subject->getStreet(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setStreetSetsStreet(): void
     {
         $this->subject->setStreet('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getStreet()
+            $this->subject->getStreet(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getHouseNumberInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getHouseNumber()
+            $this->subject->getHouseNumber(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setHouseNumberSetsHouseNumber(): void
     {
         $this->subject->setHouseNumber('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getHouseNumber()
+            $this->subject->getHouseNumber(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getZipInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getZip()
+            $this->subject->getZip(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setZipSetsZip(): void
     {
         $this->subject->setZip('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getZip()
+            $this->subject->getZip(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCityInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getCity()
+            $this->subject->getCity(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCitySetsCity(): void
     {
         $this->subject->setCity('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getCity()
+            $this->subject->getCity(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTelephoneInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTelephoneSetsTelephone(): void
     {
         $this->subject->setTelephone('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getFaxInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getFax()
+            $this->subject->getFax(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setFaxSetsFax(): void
     {
         $this->subject->setFax('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getFax()
+            $this->subject->getFax(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getContactPersonInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setContactPersonSetsContactPerson(): void
     {
         $this->subject->setContactPerson('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getContactTimesInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getContactTimes()
+            $this->subject->getContactTimes(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setContactTimesSetsContactTimes(): void
     {
         $this->subject->setContactTimes('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getContactTimes()
+            $this->subject->getContactTimes(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getEmailInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setEmailSetsEmail(): void
     {
         $this->subject->setEmail('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getWebsiteInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getWebsite()
+            $this->subject->getWebsite(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setWebsiteSetsWebsite(): void
     {
         $this->subject->setWebsite('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getWebsite()
+            $this->subject->getWebsite(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getBarrierFreeInitiallyReturnsFalse(): void
     {
         self::assertFalse(
-            $this->subject->getBarrierFree()
+            $this->subject->getBarrierFree(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setBarrierFreeSetsBarrierFree(): void
     {
         $this->subject->setBarrierFree(true);
         self::assertTrue(
-            $this->subject->getBarrierFree()
+            $this->subject->getBarrierFree(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDescriptionInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDescriptionSetsDescription(): void
     {
         $this->subject->setDescription('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTxMaps2UidInitiallyReturnsZero(): void
     {
         self::assertSame(
             0,
-            $this->subject->getTxMaps2Uid()
+            $this->subject->getTxMaps2Uid(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTxMaps2UidSetsTxMaps2Uid(): void
     {
         $this->subject->setTxMaps2Uid(123456);
 
         self::assertSame(
             123456,
-            $this->subject->getTxMaps2Uid()
+            $this->subject->getTxMaps2Uid(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDistrictSetsDistrict(): void
     {
-        $instance = new \JWeiland\Socialservices\Domain\Model\District();
+        $instance = new District();
         $this->subject->setDistrict($instance);
 
         self::assertSame(
             $instance,
-            $this->subject->getDistrict()
+            $this->subject->getDistrict(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getFacebookInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getFacebook()
+            $this->subject->getFacebook(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setFacebookSetsFacebook(): void
     {
         $this->subject->setFacebook('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getFacebook()
+            $this->subject->getFacebook(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTwitterInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getTwitter()
+            $this->subject->getTwitter(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTwitterSetsTwitter(): void
     {
         $this->subject->setTwitter('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTwitter()
+            $this->subject->getTwitter(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getInstagramInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getInstagram()
+            $this->subject->getInstagram(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setInstagramSetsInstagram(): void
     {
         $this->subject->setInstagram('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getInstagram()
+            $this->subject->getInstagram(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTagsInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getTags()
+            $this->subject->getTags(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTagsSetsTags(): void
     {
         $this->subject->setTags('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTags()
+            $this->subject->getTags(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCategoriesInitiallyReturnsObjectStorage(): void
     {
         self::assertEquals(
-            new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
-            $this->subject->getCategories()
+            new ObjectStorage(),
+            $this->subject->getCategories(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCategoriesSetsCategories(): void
     {
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $object = new Category();
+        $objectStorage = new ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addCategoryAddsOneCategory(): void
     {
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $objectStorage = new ObjectStorage();
         $this->subject->setCategories($objectStorage);
 
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+        $object = new Category();
         $this->subject->addCategory($object);
 
         $objectStorage->attach($object);
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function removeCategoryRemovesOneCategory(): void
     {
-        $object = new \TYPO3\CMS\Extbase\Domain\Model\Category();
-        $objectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $object = new Category();
+        $objectStorage = new ObjectStorage();
         $objectStorage->attach($object);
         $this->subject->setCategories($objectStorage);
 
@@ -538,7 +457,7 @@ class HelpdeskTest extends UnitTestCase
 
         self::assertSame(
             $objectStorage,
-            $this->subject->getCategories()
+            $this->subject->getCategories(),
         );
     }
 }

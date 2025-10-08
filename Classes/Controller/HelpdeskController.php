@@ -17,8 +17,9 @@ use JWeiland\Socialservices\Domain\Model\Search;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
 use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Socialservices\Event\PreProcessControllerActionEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -26,35 +27,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class HelpdeskController extends ActionController
 {
-    /**
-     * @var HelpdeskRepository
-     */
-    protected $helpdeskRepository;
-
-    /**
-     * @var CategoryRepository
-     */
-    protected $categoryRepository;
-
-    /**
-     * @var ExtConf
-     */
-    protected $extConf;
-
-    public function injectHelpdeskRepository(HelpdeskRepository $helpdeskRepository): void
-    {
-        $this->helpdeskRepository = $helpdeskRepository;
-    }
-
-    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
-    public function injectExtConf(ExtConf $extConf): void
-    {
-        $this->extConf = $extConf;
-    }
+    public function __construct(
+        protected readonly HelpdeskRepository $helpdeskRepository,
+        protected readonly ExtConf $extConf,
+    ) {}
 
     public function initializeAction(): void
     {
@@ -72,16 +48,17 @@ class HelpdeskController extends ActionController
 
     /**
      * @param string $letter Show only records starting with this letter
-     * @TYPO3\CMS\Extbase\Annotation\Validate("String", param="letter")
-     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", param="letter", options={"minimum": 0, "maximum": 3})
      */
-    public function listAction(string $letter = ''): void
+    #[Validate(['validator' => 'String', 'param' => 'letter'])]
+    #[Validate(['validator' => 'StringLength', 'param' => 'letter', 'options' => ['minimum' => 0, 'maximum' => 3]])]
+    public function listAction(string $letter = ''): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'helpdesks' => $this->helpdeskRepository->findByLetter($letter),
             'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
             'search' => GeneralUtility::makeInstance(Search::class),
         ]);
+        return $this->htmlResponse();
     }
 
     public function initializeShowAction(): void
@@ -92,11 +69,12 @@ class HelpdeskController extends ActionController
     /**
      * @param Helpdesk $helpdesk
      */
-    public function showAction(Helpdesk $helpdesk): void
+    public function showAction(Helpdesk $helpdesk): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'helpdesk' => $helpdesk,
         ]);
+        return $this->htmlResponse();
     }
 
     public function initializeSearchAction(): void
@@ -104,7 +82,7 @@ class HelpdeskController extends ActionController
         $this->preProcessControllerAction();
     }
 
-    public function searchAction(Search $search): void
+    public function searchAction(Search $search): ResponseInterface
     {
         $subCategories = [];
         if ($search->getCategory()) {
@@ -117,6 +95,7 @@ class HelpdeskController extends ActionController
             'subCategories' => $subCategories,
             'search' => $search,
         ]);
+        return $this->htmlResponse();
     }
 
     protected function postProcessAndAssignFluidVariables(array $variables = []): void
@@ -126,8 +105,8 @@ class HelpdeskController extends ActionController
             new PostProcessFluidVariablesEvent(
                 $this->request,
                 $this->settings,
-                $variables
-            )
+                $variables,
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
@@ -139,8 +118,8 @@ class HelpdeskController extends ActionController
             new PreProcessControllerActionEvent(
                 $this->request,
                 $this->arguments,
-                $this->settings
-            )
+                $this->settings,
+            ),
         );
     }
 }

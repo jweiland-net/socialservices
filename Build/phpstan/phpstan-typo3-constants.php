@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the package jweiland/socialservices.
  *
@@ -9,10 +7,6 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-use JWeiland\Socialservices\Domain\Model\Category;
-
-return [
-    Category::class => [
-        'tableName' => 'sys_category',
-    ],
-];
+defined('LF') ?: define('LF', chr(10));
+defined('CR') ?: define('CR', chr(13));
+defined('CRLF') ?: define('CRLF', CR . LF);

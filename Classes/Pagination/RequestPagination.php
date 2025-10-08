@@ -131,4 +131,16 @@ class RequestPagination implements PaginationInterface
 
         return $this->paginator->getKeyOfLastPaginatedItem() + 1;
     }
+
+    public function getAllPageNumbers(): array
+    {
+        $pages = [];
+        $numberOfPages = $this->paginator->getNumberOfPages();
+
+        for ($i = $this->getFirstPageNumber(); $i <= $numberOfPages; $i++) {
+            $pages[] = $i;
+        }
+
+        return $pages;
+    }
 }

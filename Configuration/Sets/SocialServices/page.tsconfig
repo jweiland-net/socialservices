@@ -5,8 +5,7 @@ mod.wizards.newContentElement.wizardItems.plugins {
       title = LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:plugin.socialservices.title
       description = LLL:EXT:socialservices/Resources/Private/Language/locallang_db.xlf:plugin.socialservices.description
       tt_content_defValues {
-        CType = list
-        list_type = socialservices_socialservices
+        CType = socialservices_socialservices
       }
     }
   }
