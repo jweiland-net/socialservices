@@ -6,7 +6,7 @@
 [![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 13.4][TYPO3-shield]][TYPO3-13-url]
 
-![Build Status](https://github.com/jweiland-net/socialservices/workflows/CI/badge.svg)
+![Build Status](https://github.com/jweiland-net/socialservices/actions/workflows/ci.yml/badge.svg)
 
 Manage social services to list them in frontend with a glossary and filter options.
 
