@@ -11,9 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\Socialservices\Pagination;
 
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 /**
  * This is a simple paginator which also respects GEt and POST arguments from Request
@@ -38,8 +40,9 @@ class RequestPagination implements PaginationInterface
     public function __construct(PaginatorInterface $paginator)
     {
         $this->paginator = $paginator;
+        $getMergedWithPost = $this->getMergedWithPostFromRequest($this->pluginNamespace);
 
-        foreach (GeneralUtility::_GPmerged($this->pluginNamespace) as $argumentName => $argument) {
+        foreach ($getMergedWithPost as $argumentName => $argument) {
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
                 continue;
             }
@@ -142,5 +145,29 @@ class RequestPagination implements PaginationInterface
         }
 
         return $pages;
+    }
+
+    protected function getMergedWithPostFromRequest(
+        string $argument,
+        ?ServerRequestInterface $request = null,
+    ): array {
+        $request ??= $this->getTypo3Request();
+
+        $getMergedWithPost = $request->getQueryParams()[$argument] ?? [];
+        ArrayUtility::mergeRecursiveWithOverrule(
+            $getMergedWithPost,
+            ($request->getParsedBody()[$argument] ?? []),
+        );
+
+        return $getMergedWithPost;
+    }
+
+    protected function getTypo3Request(): ServerRequestInterface
+    {
+        if (isset($GLOBALS['TYPO3_REQUEST'])) {
+            return $GLOBALS['TYPO3_REQUEST'];
+        }
+
+        return new ServerRequest('https://jweiland.net', 'GET');
     }
 }
