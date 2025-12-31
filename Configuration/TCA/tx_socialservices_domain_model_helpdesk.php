@@ -32,9 +32,9 @@ return [
         '1' => [
             'showitem' => '--palette--;;languageHidden, title, path_segment,
             --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;districtBarrierFree,
-            --palette--;;contact, --palette--;;telephoneFax, --palette--;;emailWebsite, 
+            --palette--;;contact, --palette--;;telephoneFax, --palette--;;emailWebsite,
             description, facebook, twitter, instagram, tags,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
     ],
@@ -118,9 +118,7 @@ return [
             'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
             'config' => [
                 'type' => 'datetime',
-                'size' => 16,
-                'eval' => 'int',
-                'default' => 0,
+                'format' => 'date',
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
@@ -131,9 +129,7 @@ return [
             'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
             'config' => [
                 'type' => 'datetime',
-                'size' => 16,
-                'eval' => 'int',
-                'default' => 0,
+                'format' => 'date',
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],

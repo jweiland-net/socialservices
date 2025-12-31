@@ -7,6 +7,15 @@
 ChangeLog
 =========
 
+Version 7.0.1
+=============
+
+*   [BUGFIX] Bugfixes for pfozheim installation
+*   [BUGFIX] TCA configuration fixes
+*   [BUGFIX] Pagination BugFixes
+*   [BUGFIX] EventListener Fix for Glossary2 Extension
+*   [BUGFIX] Query Compatibility fixes
+
 Version 7.0.0
 =============
 

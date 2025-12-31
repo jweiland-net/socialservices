@@ -14,6 +14,7 @@ namespace JWeiland\Socialservices\Controller;
 use JWeiland\Socialservices\Configuration\ExtConf;
 use JWeiland\Socialservices\Domain\Model\Helpdesk;
 use JWeiland\Socialservices\Domain\Model\Search;
+use JWeiland\Socialservices\Domain\Repository\CategoryRepository;
 use JWeiland\Socialservices\Domain\Repository\HelpdeskRepository;
 use JWeiland\Socialservices\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Socialservices\Event\PreProcessControllerActionEvent;
@@ -28,6 +29,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class HelpdeskController extends ActionController
 {
     public function __construct(
+        protected CategoryRepository $categoryRepository,
         protected readonly HelpdeskRepository $helpdeskRepository,
         protected readonly ExtConf $extConf,
     ) {}
@@ -58,6 +60,7 @@ class HelpdeskController extends ActionController
             'categories' => $this->categoryRepository->findByParent($this->extConf->getRootCategory()),
             'search' => GeneralUtility::makeInstance(Search::class),
         ]);
+
         return $this->htmlResponse();
     }
 
