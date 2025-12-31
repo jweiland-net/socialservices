@@ -85,7 +85,7 @@ class HelpdeskRepository extends Repository
         }
 
         if (!empty($constraints)) {
-            return $query->matching($query->logicalAnd($constraints))->execute();
+            return $query->matching($query->logicalAnd(...$constraints))->execute();
         }
 
         return $query->execute();
@@ -123,7 +123,7 @@ class HelpdeskRepository extends Repository
             $query->like('tags', '%' . $searchWord . '%'),
         ];
 
-        return $query->logicalOr($logicalOrConstraints);
+        return $query->logicalOr(...$logicalOrConstraints);
     }
 
     protected function getQueryBuilderForHelpdesk(QueryInterface $extbaseQuery): QueryBuilder
