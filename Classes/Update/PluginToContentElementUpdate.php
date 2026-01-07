@@ -29,7 +29,7 @@ class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getTitle(): string
     {
-        return 'EXT:socialservices - Migrate plugins to Content Elements';
+        return '[socialservices] Migrate plugins to Content Elements';
     }
 
     public function getDescription(): string
