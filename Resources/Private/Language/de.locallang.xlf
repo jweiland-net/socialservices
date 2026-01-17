@@ -1,151 +1,148 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices">
-		<header/>
-		<body>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk">
-				<source>Helpdesk</source>
-				<target>Sozialberatungsstellen</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.category">
-				<source>Category</source>
-				<target>Kategorie</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.street">
-				<source>Street</source>
-				<target>Straße</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber">
-				<source>House number</source>
-				<target>Hausnummer</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.zip">
-				<source>Zip</source>
-				<target>Postleitzahl</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.city">
-				<source>City</source>
-				<target>Ort</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.telephone">
-				<source>Telephone</source>
-				<target>Telefon</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.fax">
-				<source>Fax</source>
-				<target>Fax</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson">
-				<source>Contact Person</source>
-				<target>Ansprechpartner</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes">
-				<source>Contact Times</source>
-				<target>Öffnungszeiten</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.email">
-				<source>Email</source>
-				<target>E-Mail</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.website">
-				<source>Website</source>
-				<target>Webseite</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree">
-				<source>Barrier Free</source>
-				<target>Barrierefrei (Rollstuhl, Rollator)</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.description">
-				<source>Description</source>
-				<target>Beschreibung</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.facebook">
-				<source>Facebook</source>
-				<target>Facebook</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.twitter">
-				<source>Twitter</source>
-				<target>Twitter</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.instagram">
-				<source>Instagram</source>
-				<target>Instagram</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.tags">
-				<source>Tags</source>
-				<target>zusätzliche Suchbegriffe</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.district">
-				<source>District</source>
-				<target>Stadtteil</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid">
-				<source>Map</source>
-				<target>Karte</target>
-			</trans-unit>
-
-			<trans-unit id="tx_socialservices_domain_model_district">
-				<source>District (social)</source>
-				<target>Stadtteil (Sozial)</target>
-			</trans-unit>
-			<trans-unit id="tx_socialservices_domain_model_district.district">
-				<source>District</source>
-				<target>Stadtteil</target>
-			</trans-unit>
-
-			<trans-unit id="search">
-				<source>Search</source>
-				<target>Suchen</target>
-			</trans-unit>
-			<trans-unit id="noResults">
-				<source>No results found</source>
-				<target>Keine Einträge gefunden</target>
-			</trans-unit>
-			<trans-unit id="filterBy">
-				<source>Filter by</source>
-				<target>Filtern</target>
-			</trans-unit>
-			<trans-unit id="ascending">
-				<source>Ascending</source>
-				<target>Aufsteigend</target>
-			</trans-unit>
-			<trans-unit id="descending">
-				<source>Descending</source>
-				<target>Absteigend</target>
-			</trans-unit>
-			<trans-unit id="yes">
-				<source>yes</source>
-				<target>ja</target>
-			</trans-unit>
-			<trans-unit id="no">
-				<source>no</source>
-				<target>nein</target>
-			</trans-unit>
-			<trans-unit id="altTextMapImg">
-				<source>Map</source>
-				<target>Karte</target>
-			</trans-unit>
-
-			<trans-unit id="pageBrowser.first">
-				<source>First</source>
-				<target>Erste</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.previous">
-				<source>Previous</source>
-				<target>Vorherige</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.next">
-				<source>Next</source>
-				<target>Nächste</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.last">
-				<source>Last</source>
-				<target>Letzte</target>
-			</trans-unit>
-		</body>
-	</file>
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-04-26T14:08:26Z" product-name="socialservices" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk" approved="yes">
+        <source>Helpdesk</source>
+        <target state="final">Sozialberatungsstellen</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.category" approved="yes">
+        <source>Category</source>
+        <target state="final">Kategorie</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.street" approved="yes">
+        <source>Street</source>
+        <target state="final">Straße</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.houseNumber" approved="yes">
+        <source>House number</source>
+        <target state="final">Hausnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.zip" approved="yes">
+        <source>Zip</source>
+        <target state="final">PLZ</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.city" approved="yes">
+        <source>City</source>
+        <target state="final">Ort</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.telephone" approved="yes">
+        <source>Telephone</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.fax" approved="yes">
+        <source>Fax</source>
+        <target state="final">Fax</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactPerson" approved="yes">
+        <source>Contact person</source>
+        <target state="final">Ansprechpartner</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.contactTimes" approved="yes">
+        <source>Contact times</source>
+        <target state="final">Öffnungszeiten</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.email" approved="yes">
+        <source>Email</source>
+        <target state="final">E-Mail</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.website" approved="yes">
+        <source>Website</source>
+        <target state="final">Webseite</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.barrierFree" approved="yes">
+        <source>Barrier-free</source>
+        <target state="final">Barrierefrei (Rollstuhl, Rollator)</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.description" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.facebook" approved="yes">
+        <source>Facebook</source>
+        <target state="final">Facebook</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.twitter" approved="yes">
+        <source>Twitter</source>
+        <target state="final">Twitter</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.instagram" approved="yes">
+        <source>Instagram</source>
+        <target state="final">Instagram</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.tags" approved="yes">
+        <source>Tags</source>
+        <target state="final">zusätzliche Suchbegriffe</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.district" approved="yes">
+        <source>District</source>
+        <target state="final">Stadtteil</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_helpdesk.txMaps2Uid" approved="yes">
+        <source>Map</source>
+        <target state="final">Karte</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district" approved="yes">
+        <source>District (social)</source>
+        <target state="final">Stadtteil (Sozial)</target>
+      </trans-unit>
+      <trans-unit id="tx_socialservices_domain_model_district.district" approved="yes">
+        <source>District</source>
+        <target state="final">Stadtteil</target>
+      </trans-unit>
+      <trans-unit id="search" approved="yes">
+        <source>Search</source>
+        <target state="final">Suchen</target>
+      </trans-unit>
+      <trans-unit id="noResults" approved="yes">
+        <source>No results found</source>
+        <target state="final">Keine Einträge gefunden</target>
+      </trans-unit>
+      <trans-unit id="filterBy" approved="yes">
+        <source>Filter by</source>
+        <target state="final">Filtern</target>
+      </trans-unit>
+      <trans-unit id="ascending" approved="yes">
+        <source>Ascending</source>
+        <target state="final">Aufsteigend</target>
+      </trans-unit>
+      <trans-unit id="descending" approved="yes">
+        <source>Descending</source>
+        <target state="final">Absteigend</target>
+      </trans-unit>
+      <trans-unit id="yes" approved="yes">
+        <source>yes</source>
+        <target state="final">ja</target>
+      </trans-unit>
+      <trans-unit id="no" approved="yes">
+        <source>no</source>
+        <target state="final">nein</target>
+      </trans-unit>
+      <trans-unit id="altTextMapImg" approved="yes">
+        <source>Map</source>
+        <target state="final">Karte</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first" approved="yes">
+        <source>First</source>
+        <target state="final">Erste</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous" approved="yes">
+        <source>Previous</source>
+        <target state="final">Vorherige</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next" approved="yes">
+        <source>Next</source>
+        <target state="final">Nächste</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last" approved="yes">
+        <source>Last</source>
+        <target state="final">Letzte</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
